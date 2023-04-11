@@ -1,0 +1,40 @@
+footer .container-fluid {
+  padding: 20px 5px 0;
+  position: absolute;
+  z-index: 1;
+  background: #f4f4f4;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+}
+footer .foot {
+  display: flex;
+  width: 100vw;
+  justify-content: space-evenly;
+  margin: 1.5rem 0;
+}
+footer .foot div div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #656565 !important;
+  padding: 4px;
+  font-weight: 400;
+}
+@media screen and (max-width: 990px) {
+  footer .container-fluid {
+    background: #f4f4f4;
+    margin-top: 50px;
+    display: grid;
+    place-items: center;
+  }
+
+  footer .foot {
+    display: block;
+    width: 100vw;
+    justify-content: space-evenly;
+    margin: 1.5rem 0;
+  }
+}

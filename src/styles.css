@@ -1,0 +1,384 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import"./small.css";
+@import"./tab-style.css";
+@import "./large.css";
+@import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
+.modal-title {
+    text-align: center;
+      text-transform: uppercase;
+      width: 100%;
+      color: #f6931e;
+      font-weight: 600;
+      margin-top: 0.3em;
+      margin-left: 1.3em;
+  }
+  .modal-header {
+    /* border-top: 5px #f6931e solid; */
+    color: grey !important;
+    border-bottom: none !important;
+    padding: 0px 15px 15px 0px !important;
+    border-radius: 0px;
+  }
+  .modal-content {
+    border-radius: 0px !important;
+  }
+
+  .modal-body {
+    text-align: center;
+    padding-bottom: 3em;
+    color: #757575;
+      font-size: 1.1em;
+  }
+
+  .modal-content {
+    min-width: 300;
+    min-height: 300;
+  }
+
+  .modal-dialog {
+    margin: 25vh auto;
+  }
+
+
+  .modal-error-icon {
+      font-size: 2.2em;
+      color: #bd0000;
+  }
+  .modal-success-icon {
+    font-size: 2.2em;
+      color: #16c316;
+  }
+
+
+  .modal-header .close {
+      outline: none;
+  }
+  /**********************/
+
+/* Plan Compare */
+
+.accordion > .card:first-of-type, .card {
+	border:none;
+	margin-bottom: 0.45rem;
+}
+.card-header {
+	background-color: #fff;
+	padding: 0;
+	display: block;
+	border-bottom: none;
+
+}
+.card-header a, .card-header .btn a {
+	color: #2192af !important;
+	text-decoration: none;
+	display: flex;
+	display: -ms-flexbox;
+	padding: 3px 6px 6px 30px;
+	text-align: left;
+	font-size: 1.3rem;
+}
+#One .btn {
+	padding: 0 !important;
+}
+.card-header a:hover {
+	color: #2192af;
+}
+.filters .btn-link, .filters .card .btn-link {
+	text-align: left;
+	padding: 0;
+}
+#One .btn {
+	margin: 0;
+}
+.filters .card-header a {
+	padding-top: 6px;
+}
+.filters-SM {
+	margin-top: -0.5rem;
+	height: 450px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.icon-plus {
+	position: absolute;
+	top: 17px;
+	left: 1px;
+	-webkit-animation: minus 0.5s;
+}
+.icon-minus {
+	position: absolute;
+	top: 21px;
+	left: 1px;
+	-webkit-animation: minus 0.5s;
+}
+.btn-info-expand .icon-plus {
+	position: absolute;
+	top: auto;
+	left: auto;
+	text-transform: uppercase;
+	-webkit-animation: minus 0.5s;
+	margin: 8px 0 0 0.5rem;
+}
+[aria-expanded="false"] > .expanded, [aria-expanded="true"] > .collapsed {
+	display: none;
+}
+.white-card .card, .white-card.accordion > .card:first-of-type {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+.white-card, .white-card .card-header, .white-card .btn {
+	border: none;
+	margin: 0 0 0.5rem 0;
+	padding: 0;
+}
+.white-card .card-header a, .white-card .card-header {
+	background-color: #FFF;
+	color: #565655;
+	font-weight: 600;
+	text-transform: inherit;border-top: 1px solid #CCC;
+}
+.white-card .btn a, .white-card .btn a:hover,
+.white-card .btn a:active, .white-card .btn a:focus {
+	text-decoration: none;
+	color: #565655;
+}
+.white-card .card-body {
+	padding: 0 0 1rem 2.5rem;
+}
+.pointer {
+	cursor: pointer;
+}
+.quality-ratings input + label {
+	display: inline-block;
+}
+.filters h3 {
+	color: #21646e;
+	margin-top: 1rem;
+	word-break: break;
+}
+.filters h3:first-child {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.gray-bg-container {
+	background-color: #f7f7f7;
+	border: 1px solid #E8E8E8;
+	padding: 0.5rem;
+	border-top: none;
+}
+.title-bar {
+	height: 5px;
+	width: 80px;
+	background-color: #0099CC;
+	margin: 12px 0;
+}
+
+.ng5-slider .ng5-slider-bar {
+	left: unset !important;
+	width: unset !important;
+	height: unset !important;
+	z-index: unset !important;
+	background: unset !important;
+	border-radius: unset !important;
+}
+
+.ng5-slider .ng5-slider-tick {
+	top: 8px !important;
+}
+
+.ng5-slider .ng5-slider-pointer {
+    width: 36px !important;
+    height: 36px !important;
+    top: -5px !important;
+    bottom: 0;
+	/* background: url('assets\img\cost-estimator\handle-lg-blue.png') !important; */
+	left: 0;
+  }
+
+  .ng5-slider .ng5-slider-pointer:hover,
+  .ng5-slider .ng5-slider-pointer:active,
+  .ng5-slider .ng5-slider-pointer:focus,
+  .ng5-slider .ng5-slider-pointer:active:focus {
+	  outline: none !important;
+	  border: none !important;
+  }
+
+  .ng5-slider .ng5-slider-pointer:after {
+	background: unset !important;
+  }
+
+  span.ng5-slider-span.ng5-slider-bubble.ng5-slider-limit.ng5-slider-floor {
+	  opacity: 1 !important;
+  }
+
+  span.ng5-slider-span.ng5-slider-bubble.ng5-slider-limit.ng5-slider-ceil {
+	opacity: 1 !important;
+  }
+
+  span.ng5-slider-span.ng5-slider-bubble.ng5-slider-model-value {
+	opacity: 0 !important;
+  }
+
+  .ng5-slider .ng5-slider-bubble {
+    bottom: 22px !important;
+  }
+
+  span.ng5-slider-span.ng5-slider-bubble.ng5-slider-limit.ng5-slider-floor {
+    visibility: hidden !important;
+    opacity: 0;
+	}
+
+	span.ng5-slider-span.ng5-slider-bubble.ng5-slider-limit.ng5-slider-ceil {
+    opacity: 0;
+    visibility: hidden !important;
+	}
+
+	.ng5-slider {
+		margin: 15px 0 15px !important;
+	}
+
+
+/* Mobile View Progress Bar */
+
+#progressbar {
+    overflow: hidden;
+    counter-reset: step;
+    padding: 0 !important;
+}
+
+#progressbar li {
+    list-style-type: none;
+    text-transform: uppercase;
+    font-size: 10px;
+    width: 25%;
+    float: left;
+    position: relative;
+    text-align: center;
+    color: #c1bfc0;
+    font-weight: bold;
+}
+
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 40%;
+    line-height: 32px;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background: #e5e5e5;
+    border-radius: 51%;
+    margin: 5px auto 10px auto;
+    text-align: center;
+    border: 1px solid #e6e8e7;
+    box-shadow: 0 0 0 5px #e6e8e7;
+    position: relative;
+}
+
+#progressbar li:after {
+    content: '';
+    width: 52%;
+    height: 100%;
+    /* background: url(assets/img/mbl-view-progress-bar.png) 0 0 no-repeat; */
+    position: absolute;
+    left: -26%;
+    top: 22%;
+    background-size: contain;
+}
+
+#progressbar li:first-child:after {
+    content: none;
+}
+
+#progressbar li.currently-active-bar div {
+  color: #318fb0;
+}
+
+#progressbar li.active-bar div {
+    color: #4d4e53;
+}
+
+#progressbar li.active-bar:before {
+    content: '\f00c';
+    font-family: "Font Awesome 5 Free";
+    background: #8ac334;
+    color: white;
+    border: 1px solid #5aa425;
+}
+
+#progressbar li.currently-active-bar:before {
+  background: #0c96bd;
+  color: white;
+  border: 1px solid #2e7d98;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #9E1E62;
+  border-color: #9E1E62;
+}
+
+.btn-outline-back {
+  background-color: #fff;
+  border: 1px solid #9E1E62;
+  color: #9E1E62;
+}
+.select-line {
+  position: absolute;
+  border-left: 1px solid #f0eded;
+  height: 30px;
+  top: 5px;
+  right: 128px;
+}
+.select-line-3 {
+  position: absolute;
+  border-left: 1px solid #f0eded;
+  height: 30px;
+  top: 5px;
+  right: 95px;
+}
+.sub-progress-bar-menu {
+  font-size: 14px !important;
+}
+.sub-progress-bar > .active {
+  font-size: 16px !important;
+}
+
+.first > hr {
+  margin-left: 24% !important;
+}
+.third > hr {
+  margin-left: 25% !important;
+}
+.fourth > hr {
+  margin-left: 22% !important;
+}
+.fifth > hr,.sixth > hr {
+  margin-left: 24% !important;
+  width: 77% !important;
+}
+.past {
+  color: #00BA86;
+}
+@media screen and (min-width: 320px) and (max-width: 600px) {
+  div.mobile-view-progress-bar-container {
+    display: block !important;
+  }
+  .web-view-progress-bar-container {
+    display: none !important;
+  }
+  .btn {
+    width: 100% !important;
+  }
+  .sub-progress-bar {
+    padding: 0 5px !important;
+  }
+}
+.sliderDiv .ng5-slider .ng5-slider-bar{
+  height: 0px !important;
+}

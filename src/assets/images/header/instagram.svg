@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
+  <g id="Group_6375" data-name="Group 6375" transform="translate(0.207 0.031)">
+    <circle id="Ellipse_98" data-name="Ellipse 98" cx="19" cy="19" r="19" transform="translate(-0.207 -0.03)" fill="#279c30"/>
+    <g id="Icon_ionic-logo-instagram" data-name="Icon ionic-logo-instagram" transform="translate(10.735 10.735)">
+      <path id="Path_3" data-name="Path 3" d="M16.542,5.917a3.552,3.552,0,0,1,3.542,3.542v7.083a3.552,3.552,0,0,1-3.542,3.542H9.458a3.552,3.552,0,0,1-3.542-3.542V9.458A3.552,3.552,0,0,1,9.458,5.917h7.083m0-1.417H9.458A4.973,4.973,0,0,0,4.5,9.458v7.083A4.973,4.973,0,0,0,9.458,21.5h7.083A4.973,4.973,0,0,0,21.5,16.542V9.458A4.973,4.973,0,0,0,16.542,4.5Z" transform="translate(-4.5 -4.5)" fill="#fff"/>
+      <path id="Path_4" data-name="Path 4" d="M24.718,11.185a1.093,1.093,0,1,1,1.093-1.093A1.09,1.09,0,0,1,24.718,11.185Z" transform="translate(-11.632 -6.178)" fill="#fff"/>
+      <path id="Path_5" data-name="Path 5" d="M15.38,12.627a2.753,2.753,0,1,1-2.753,2.753,2.756,2.756,0,0,1,2.753-2.753m0-1.377a4.13,4.13,0,1,0,4.13,4.13,4.131,4.131,0,0,0-4.13-4.13Z" transform="translate(-6.88 -6.88)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

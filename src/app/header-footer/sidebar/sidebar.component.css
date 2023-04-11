@@ -1,0 +1,67 @@
+@media only screen and (min-width: 320px) and (max-width: 991px) {
+  nav {
+    border-bottom: 3px solid #279c30;
+    background: #fff !important;
+    position: fixed;
+    width: 100%;
+    z-index: 102;
+    height: 60px;
+  }
+
+  .navline span img {
+    margin-top: 0.85rem;
+    width: 36px;
+    cursor: pointer;
+  }
+  .slidebar {
+    background: #fff;
+    position: absolute;
+    width: 55%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-top: 1.5rem;
+    height: 100vh;
+    overflow: auto;
+    padding-top: 1.1rem;
+    transition: 2s ease-in;
+  }
+  .slidebar ul {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .slidebar ul li {
+    list-style: none;
+    margin: 5px 5px 10px 0;
+    padding: 0;
+  }
+  .slidebar ul li img {
+    margin: 5px 20px;
+  }
+  .slidebar ul li a {
+    color: #656565;
+    font-size: 14px !important;
+  }
+  .slidebar ul li .mat-expansion-indicator::after {
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    content: "";
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    vertical-align: middle;
+  }
+  .slidebar ul li a {
+  }
+  .slidebar ul #drop1:hover {
+  }
+  .slidebar ul #drop1 div {
+    user-select: none;
+  }
+  .slidebar ul #drop2 div {
+    user-select: none;
+  }
+}
+@media screen and (min-width: 992px) {
+  nav {
+    display: none;
+  }
+}

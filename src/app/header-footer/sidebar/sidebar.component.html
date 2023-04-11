@@ -1,0 +1,178 @@
+<nav>
+  <div class="navline">
+    <span class="mx-4" *ngIf="!toggleMenu"
+      ><img
+        src="./assets/images/header/Group 724.svg"
+        alt="hamburger"
+        (click)="ontoggled()" /></span
+    ><span class="mx-4" *ngIf="toggleMenu"
+      ><img
+        src="./assets/images/header/back.svg"
+        alt="back"
+        (click)="ontoggled()"
+    /></span>
+  </div>
+  <div *ngIf="toggleMenu" class="slidebar">
+    <ul>
+      <li>
+        <a href=""
+          ><img
+            src="./assets/images/header/home.svg"
+            alt=""
+            width="25px"
+          />Home</a
+        >
+      </li>
+      <li>
+        <a href=""
+          ><img
+            src="./assets/images/header/supreme-games.png"
+            alt=""
+            width="25px"
+          />Supreme Ventures Gaming</a
+        >
+      </li>
+      <li>
+        <a href=""
+          ><img
+            src="./assets/images/header/AllGames.svg"
+            alt=""
+            width="25px"
+          />SV Games</a
+        >
+      </li>
+      <li id="drop1" (click)="onDrop1()">
+        <img src="./assets/images/header/just-bet.svg" alt="" width="25px" />
+        <span class="mr-5">Just Bet</span>
+        <span
+          class="mat-expansion-indicator ng-tns-c8-31 ng-trigger ng-trigger-indicatorRotate ng-star-inserted"
+          style="transform: rotate(180deg)"
+        ></span>
+        <div *ngIf="toggleDrop1">
+          <div class="ml-5 border-bottom">
+            <a href="#"
+              ><img
+                src="assets/images/header/sports-betting.svg"
+                alt="sports Betting"
+                width="25px"
+              />
+              Sports Betting</a
+            >
+          </div>
+          <div class="ml-5 border-bottom">
+            <a href="#"
+              ><img
+                src="assets/images/header/online-betting.svg"
+                alt="sports Betting"
+                width="25px"
+              />
+              Live Betting</a
+            >
+          </div>
+          <div class="ml-5 border-bottom">
+            <a href="#"
+              ><img
+                src="assets/images/header/virtual-betting.svg"
+                alt="sports Betting"
+                width="25px"
+              />
+              Virtual Betting</a
+            >
+          </div>
+        </div>
+      </li>
+      <li>
+        <a href=""
+          ><img
+            src="./assets/images/header/mbet.svg"
+            alt=""
+            width="25px"
+          />MBet</a
+        >
+      </li>
+      <li id="drop2" (click)="onDrop2()">
+        <img src="./assets/images/header/help.svg" alt="" width="25px" />
+        <span class="mr-5">Help</span>
+        <span
+          class="mat-expansion-indicator ng-tns-c8-31 ng-trigger ng-trigger-indicatorRotate ng-star-inserted"
+          [ngStyle]="{
+            transform: toggleDrop2 ? 'rotate(180deg)' : 'rotate(0deg)'
+          }"
+        ></span>
+        <div *ngIf="toggleDrop2">
+          <div class="ml-5 border-bottom">
+            <a href="#"
+              ><img
+                src="assets/images/header/howtotopup.svg"
+                alt="sports Betting"
+                width="25px"
+              />
+
+              Top Ups & Redemption</a
+            >
+          </div>
+          <div class="ml-5 border-bottom">
+            <a href="#"
+              ><img
+                src="assets/images/header/locations.svg"
+                alt="sports Betting"
+                width="25px"
+              />
+
+              Locations</a
+            >
+          </div>
+          <div class="ml-5 border-bottom">
+            <a href="#"
+              ><img
+                src="assets/images/header/account-tiers.svg"
+                alt="sports Betting"
+                width="25px"
+              />
+
+              Account Tiers</a
+            >
+          </div>
+          <div class="ml-5 border-bottom">
+            <a href="#"
+              ><img
+                src="assets/images/header/faqs.svg"
+                alt="sports Betting"
+                width="25px"
+              />
+
+              FAQ'S</a
+            >
+          </div>
+        </div>
+      </li>
+      <li>
+        <a href=""
+          ><img
+            src="./assets/images/header/login.svg"
+            alt=""
+            width="25px"
+          />Login</a
+        >
+      </li>
+      <li>
+        <a href=""
+          ><img
+            src="./assets/images/header/registration.svg"
+            alt=""
+            width="25px"
+          />Registration</a
+        >
+      </li>
+      <li>
+        <a href=""
+          ><img
+            src="./assets/images/header/download.svg"
+            alt=""
+            width="25px"
+          />Download</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
