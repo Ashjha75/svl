@@ -1,0 +1,58 @@
+<div class="registeration">
+  <div class="out-container">
+    <div>Registration</div>
+    <div><img src="./assets/images/register/signup-1.png" /></div>
+  </div>
+  <div class="formContainer">
+    <div class="info1">Registration</div>
+    <div class="info2">Enter your mobile number to register</div>
+    <div class="forms">
+      <form>
+        <div class="input-container">
+          <div class="inputGroup">
+            <label for="code">Country code *</label>
+            <select name="code" id="code" (ngclick)="onclick2()">
+              <option value disabled selected>Select</option>
+              <option value="1">+1(JM)</option>
+              <option value="91">+91(IN)</option>
+            </select>
+            <div class="warn">
+              <i class="fa fa-info-circle error-info-icon mr-1"></i>Please fill
+              this field to continue
+            </div>
+          </div>
+
+          <div class="inputGroup">
+            <input
+              type="number"
+              required=""
+              autocomplete="off"
+              placeholder="876-XXX-YYYY"
+              name="mobile"
+              id="myInput"
+              (ngclick)="onclick()"
+            />
+            <label for="mobile">Mobile Number *</label>
+            <div class="warn">
+              <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
+              this field to continue
+            </div>
+          </div>
+        </div>
+        <div class="verify">
+          You will receive a verification code on your mobile phone
+        </div>
+        <div
+          class="btnContainer d-flex justify-content-between align-items-center w-100"
+        >
+          <button type="button" class="btn btn1 bg-secondary text-white w-50">
+            Cancel
+          </button>
+          <button type="button" class="btn btn2 bg-success text-white w-50">
+            Send Code
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,7 @@
 footer .container-fluid {
   padding: 20px 5px 0;
-  position: absolute;
   z-index: 1;
   background: #f4f4f4;
-  bottom: 0;
   display: grid;
   place-items: center;
 }
