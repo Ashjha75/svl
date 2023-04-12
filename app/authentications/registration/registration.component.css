@@ -1,0 +1,199 @@
+.registeration {
+  background: url("assets/images/register/background.b5b1c30cc875653fe9c7.png")
+    center center/cover no-repeat fixed;
+  background-repeat: repeat;
+  background-position: left;
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.out-container {
+  margin-top: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--green);
+  max-width: 550px;
+}
+.out-container div {
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+.out-container div img {
+  max-width: 100%;
+}
+.formContainer {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+  background: #fff;
+  padding: 30px;
+  border: 3px solid #269c2f;
+  margin-top: 10px;
+}
+.formContainer .info1 {
+  color: var(--green);
+  font-size: 19px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.formContainer .info2 {
+  color: #fb9333;
+  font-size: 15px;
+  text-align: center !important;
+  margin-bottom: 10px;
+}
+form {
+  width: 100%;
+}
+form .input-container {
+  display: flex;
+  margin-left: 0 !important;
+}
+.inputGroup {
+  margin: 1rem 0 1rem 0;
+  width: 100%;
+  position: relative;
+}
+form .inputGroup .note {
+  position: absolute;
+  right: 0;
+  font-size: 15px;
+}
+.warn {
+  color: var(--red);
+  font-size: 10px;
+  display: none;
+}
+
+form .inputGroup select {
+  padding: 0.5rem;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid #d4d4d4;
+  font-size: 14px;
+  color: #777;
+  width: 80%;
+  border-radius: 5px;
+  font-size: 14px !important;
+  letter-spacing: 0.4px !important;
+  height: 45px !important;
+}
+form .inputGroup input {
+  padding: 0.5rem;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid #d4d4d4;
+  font-size: 14px;
+  color: #777;
+  width: 110%;
+  border-radius: 5px;
+  font-size: 14px !important;
+  letter-spacing: 0.4px !important;
+  height: 45px !important;
+  margin-left: -25px;
+}
+form .verify {
+  color: #656565;
+  font-size: 14px;
+  text-align: center !important;
+}
+form .inputGroup input:focus {
+  border: 1px solid var(--green);
+}
+form .inputGroup select:focus {
+  border: 1px solid var(--green);
+}
+form .inputGroup label {
+  transform: translateY(-50%) scale(0.9);
+  position: absolute;
+  left: 0;
+  font-size: 16px;
+  margin-left: 0.5rem;
+  color: #389140;
+  background: #fff;
+  border-color: #279c31;
+}
+form .btnContainer .btn {
+  margin: 0 4px;
+  margin-top: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 15px;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+@media only screen and (max-width: 556px) {
+  .registeration {
+    background: url("assets/images/register/background.b5b1c30cc875653fe9c7.png")
+      center center/contain fixed;
+    background-repeat: repeat;
+    background-position: left;
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .out-container {
+    max-width: 470px;
+  }
+  .out-container .imgc {
+    text-align: center;
+  }
+  .out-container img {
+    max-width: none;
+    width: 90%;
+  }
+  form .input-container {
+    width: 100%;
+    display: block;
+    margin-left: 0 !important;
+  }
+  .formContainer {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 7px;
+    background: #fff;
+    padding: 15px !important;
+    border: 3px solid #269c2f;
+    margin-top: 10px;
+
+    width: 90vw;
+  }
+  form .inputGroup select {
+    padding: 0.5rem;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #d4d4d4;
+    font-size: 14px;
+    color: #777;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 14px !important;
+    letter-spacing: 0.4px !important;
+    height: 45px !important;
+  }
+  form .inputGroup input {
+    padding: 0.5rem;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #d4d4d4;
+    font-size: 14px;
+    color: #777;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 14px !important;
+    letter-spacing: 0.4px !important;
+    height: 45px !important;
+    margin-left: 0px;
+  }
+}

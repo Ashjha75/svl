@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="26" viewBox="0 0 23 26">
+  <defs>
+    <clipPath id="clip-locations-01">
+      <rect width="23" height="26"/>
+    </clipPath>
+  </defs>
+  <g id="locations-01" clip-path="url(#clip-locations-01)">
+    <g id="pin" transform="translate(-31)">
+      <g id="Group_3312" data-name="Group 3312" transform="translate(31)">
+        <g id="Group_3311" data-name="Group 3311">
+          <path id="Path_7141" data-name="Path 7141" d="M46.668,17.071c2.749-4.314,2.4-3.776,2.483-3.889a8.265,8.265,0,0,0,1.53-4.806A8.327,8.327,0,1,0,35.6,13.244l2.439,3.827C35.433,17.472,31,18.666,31,21.3c0,.959.626,2.325,3.606,3.389a23.892,23.892,0,0,0,7.748,1.153c5.451,0,11.355-1.538,11.355-4.542C53.709,18.666,49.281,17.473,46.668,17.071Zm-9.8-4.66-.026-.038A6.813,6.813,0,1,1,47.924,12.3c-.073.1.308-.495-5.569,8.726Zm5.488,11.912c-5.955,0-9.841-1.75-9.841-3.028,0-.859,2-2.271,6.422-2.821l2.781,4.363a.757.757,0,0,0,1.277,0l2.781-4.363c4.425.55,6.422,1.962,6.422,2.821C52.2,22.563,48.344,24.324,42.355,24.324Z" transform="translate(-31)" fill="#269c2f"/>
+        </g>
+      </g>
+      <g id="Group_3314" data-name="Group 3314" transform="translate(38.57 4.592)">
+        <g id="Group_3313" data-name="Group 3313" transform="translate(0)">
+          <path id="Path_7142" data-name="Path 7142" d="M184.785,91a3.785,3.785,0,1,0,3.785,3.785A3.789,3.789,0,0,0,184.785,91Zm0,6.056a2.271,2.271,0,1,1,2.271-2.271A2.274,2.274,0,0,1,184.785,97.056Z" transform="translate(-181 -91)" fill="#269c2f"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+.registeration {
+  background: url("assets/images/register/background.b5b1c30cc875653fe9c7.png")
+    center center/cover no-repeat fixed;
+  background-repeat: repeat;
+  background-position: left;
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
