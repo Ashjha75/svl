@@ -1,0 +1,150 @@
+<div class="registeration">
+  <div class="out-container">
+    <div class="imgc">
+      <img src="./assets/images/register/signup-1.png" />
+    </div>
+  </div>
+  <div class="formContainer">
+    <div class="info1">Personal Details</div>
+
+    <div class="forms">
+      <form>
+        <div class="faded">
+          <label for="file-input">
+            <img
+              src="./assets/images/register/profileimage.png"
+              alt="Select an image"
+            />
+          </label>
+          <input
+            type="file"
+            id="file-input"
+            name="image"
+            accept="image/*"
+            style="display: none"
+          />
+          <div class="imgInfo">
+            (Allowed document formats are : jpg, jpeg. png)
+          </div>
+          <div class="info1 mb-1">Profile Picture</div>
+        </div>
+        <div class="input-container">
+          <div class="inputGroup">
+            <input type="text" autocomplete="off" name="mobile" />
+            <label for="mobile">First Name *</label>
+            <div class="warn">
+              <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
+              this field to continue
+            </div>
+          </div>
+          <div class="inputGroup">
+            <input type="text" autocomplete="off" name="mobile" />
+            <label for="mobile">Middle Name *</label>
+          </div>
+          <div class="inputGroup">
+            <input type="text" autocomplete="off" name="mobile" />
+            <label for="mobile">Last Name *</label>
+            <div class="warn">
+              <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
+              this field to continue
+            </div>
+          </div>
+          <div class="inputGroup">
+            <input
+              type="date"
+              placeholder="dd/mm/yyyy"
+              id="date"
+              autocomplete="off"
+              name="mobile"
+            />
+            <label for="mobile">Date Of Birth *</label>
+            <div class="warn">
+              <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
+              this field to continue
+            </div>
+          </div>
+          <div class="inputGroup">
+            <select name="gender" id="gender">
+              <option value disabled selected>Gender</option>
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+            </select>
+            <label for="mobile">Date Of Birth *</label>
+            <div class="warn">
+              <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
+              this field to continue
+            </div>
+          </div>
+          <div class="inputGroup select-box position-relative">
+            <div class="select-option d-flex">
+              <input
+                readonly
+                name=""
+                placeholder="select"
+                id="soValue"
+                (click)="onClicked()"
+              />
+            </div>
+            <label for="soValue">Country Of Birth *</label>
+            <div class="content" *ngIf="toggleoption">
+              <div class="search">
+                <input type="search" id="optionSearch" placeholder="Search" />
+              </div>
+              <ul class="options">
+                <li>Html</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>TypeScript</li>
+                <li>React</li>
+                <li>Angular</li>
+                <li>Django</li>
+                <li>Php</li>
+                <li>Sql</li>
+                <li>Api</li>
+              </ul>
+            </div>
+          </div>
+          <div class="inputGroup select-box position-relative">
+            <div class="select-option d-flex mt-2">
+              <input
+                readonly
+                name=""
+                placeholder="select"
+                id="soValue"
+                (click)="onClicked2()"
+              />
+            </div>
+            <label for="soValue">Nationality*</label>
+            <div class="content" *ngIf="toggleoption2">
+              <div class="search">
+                <input type="search" id="optionSearch" placeholder="Search" />
+              </div>
+              <ul class="options">
+                <li>Html</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>TypeScript</li>
+                <li>React</li>
+                <li>Angular</li>
+                <li>Django</li>
+                <li>Php</li>
+                <li>Sql</li>
+                <li>Api</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="btnContainer d-flex justify-content-between align-items-center w-100"
+        >
+          <button type="button" class="btn btn1 bg-secondary text-white w-50">
+            Back
+          </button>
+          <button type="button" class="btn btn2 bg-success text-white w-50">
+            Save and continue
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,5 @@
 .registeration {
-  background: url("assets/images/register/background.b5b1c30cc875653fe9c7.png")
-    center center/cover no-repeat fixed;
+  background: #fff;
   background-repeat: repeat;
   background-position: left;
   width: 100%;
@@ -8,4 +7,148 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+.heading {
+  margin-top: 150px;
+  color: var(--green);
+  margin-bottom: 1.4rem;
+  font-size: 22px;
+  font-weight: 400;
+}
+.containers {
+  width: 94vw;
+  height: 75%;
+  box-shadow: 0 3px 8px 2px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  border: 1px solid #a7a6a671;
+  border-radius: 2px;
+  padding: 30px !important;
+  color: #656565;
+  margin-bottom: 7rem;
+  margin-left: 2.3rem;
+}
+.containers .headings {
+  color: var(--green);
+  font-size: 18px;
+  font-weight: 500;
+  margin: 1rem 0;
+}
+.containers .head2 {
+  color: #4a4949;
+  font-style: 16px;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.containers .firstContainers {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+}
+.containers .secondContainers {
+  font-size: 16px;
+  font-weight: 400;
+}
+.containers .conntent1 {
+  height: 94%;
+  overflow: auto;
+}
+.containers .content2 {
+  margin-top: 1vh;
+  height: 22%;
+}
+.containers .btnContainer {
+  text-align: center;
+}
+.containers .btnContainer .btn1 {
+  border: 1.2px solid var(--green);
+  color: var(--green);
+  margin: 0 1rem;
+  height: 38px;
+  padding: 0 100px;
+  border-radius: 7px;
+}
+.containers .btnContainer .btn2 {
+  background-color: var(--green);
+  margin: 0 0.6rem;
+  padding: 0 30px;
+  color: #fff;
+  height: 38px;
+}
+.containers .content2 .btninfo {
+  display: none;
+}
+@media screen and (max-width: 556px) {
+  .containersInfo1 {
+    display: none;
+  }
+  .heading {
+    margin-top: 180px;
+
+    color: var(--green);
+    margin-bottom: 0rem;
+    font-size: 22px;
+    font-weight: 400;
+  }
+  .containers {
+    width: 97vw;
+    height: 87%;
+    box-shadow: 0 0px 0px 0px rgba(255, 255, 255, 0.2);
+    background: #fff;
+    border: none;
+    border-radius: 0px;
+    padding: 20px !important;
+    margin-bottom: 4rem;
+    margin-left: 0.5rem;
+  }
+  .containers .conntent1 {
+    height: 75%;
+    overflow: auto;
+  }
+  .containers .content2 {
+    margin-top: 1vh;
+    height: 37%;
+  }
+  .containers .content2 .btninfo {
+    font-size: 15px;
+  }
+  .containers .btnContainer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 200px;
+  }
+  .containers .btnContainer .btn1 {
+    border: 1.2px solid var(--green);
+    color: var(--green);
+    margin: 0 rem;
+    order: 1;
+    margin-top: 0.5rem;
+    height: 38px;
+    padding: 0 100px;
+    border-radius: 7px;
+  }
+  .containers .btnContainer .btn2 {
+    background-color: var(--green);
+    margin: 0 0rem;
+    padding: 0 30px;
+    color: #fff;
+    height: 38px;
+  }
+}
+@media screen and (min-width: 656px) and (max-width: 996px) {
+  .containers {
+    width: 94vw;
+    height: 75%;
+    box-shadow: 0 3px 8px 2px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    border: 1px solid #a7a6a671;
+    border-radius: 2px;
+    padding: 30px !important;
+    color: #656565;
+    margin-bottom: 3rem;
+    margin-left: 0.7rem;
+  }
 }
