@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22.52" height="21" viewBox="0 0 22.52 21">
+  <defs>
+    <clipPath id="clip-download-01">
+      <rect width="22.52" height="21"/>
+    </clipPath>
+  </defs>
+  <g id="download-01" clip-path="url(#clip-download-01)">
+    <g id="download_1_" data-name="download (1)" transform="translate(0 -17.25)">
+      <g id="Group_3302" data-name="Group 3302" transform="translate(0 17.25)">
+        <path id="Path_7124" data-name="Path 7124" d="M21.7,228.245a.637.637,0,0,0-.64.64v5.821a2.872,2.872,0,0,1-2.868,2.868H4.148a2.872,2.872,0,0,1-2.868-2.868V228.79a.64.64,0,1,0-1.28,0v5.916a4.152,4.152,0,0,0,4.148,4.148h14.04a4.152,4.152,0,0,0,4.148-4.148v-5.821A.64.64,0,0,0,21.7,228.245Z" transform="translate(0 -218.153)" fill="#269c2f"/>
+        <path id="Path_7125" data-name="Path 7125" d="M140.485,32.869a.644.644,0,0,0,.45.19.624.624,0,0,0,.45-.19l4.067-4.067a.64.64,0,1,0-.905-.905l-2.972,2.977V17.89a.64.64,0,1,0-1.28,0V30.873L137.319,27.9a.64.64,0,1,0-.905.905Z" transform="translate(-129.768 -17.25)" fill="#269c2f"/>
+      </g>
+    </g>
+  </g>
+</svg>

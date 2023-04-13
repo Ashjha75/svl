@@ -1,0 +1,335 @@
+<div class="registeration">
+  <div class="out-container">
+    <div>Registration</div>
+    <div class="imgc">
+      <img src="./assets/images/register/signup-1.png" />
+    </div>
+  </div>
+  <div class="formContainer">
+    <div class="info1">Security Details</div>
+
+    <div class="forms">
+      <form>
+        <div class="input-container">
+          <div class="inputGroup">
+            <select name="code">
+              <option value disabled selected>Select</option>
+              <option value="What is your favourite book?">
+                What is your favourite book?
+              </option>
+              <option value="What is the name of the road you grew up on?">
+                What is the name of the road you grew up on?
+              </option>
+              <option value="What is your mothers maiden name?">
+                What is your mothers maiden name?
+              </option>
+              <option
+                value="What was the name of your first/current/favourite pet?"
+              >
+                What was the name of your first/current/favourite pet?
+              </option>
+              <option value="What was the first company that you worked for?">
+                What was the first company that you worked for?
+              </option>
+              <option value="Where did you meet your spouse?">
+                Where did you meet your spouse?
+              </option>
+              <option value="Where did you go to high school/college?">
+                Where did you go to high school/college?
+              </option>
+              <option value="What is your favourite food?">
+                What is your favourite food?
+              </option>
+              <option value="What city were you born in?">
+                What city were you born in?
+              </option>
+              <option value="Where is your favourite place to vacation?">
+                Where is your favourite place to vacation?
+              </option>
+              <option
+                value="What was the name of your elementary/primary school?"
+              >
+                What was the name of your elementary/primary school?
+              </option>
+              <option
+                value="What was your favourite place to visit as a child?"
+              >
+                What was your favourite place to visit as a child?
+              </option>
+              <option
+                value="What is the name of your favourite childhood teacher?"
+              >
+                What is the name of your favourite childhood teacher?
+              </option>
+              <option value="To what city did you go on your honeymoon?">
+                To what city did you go on your honeymoon?
+              </option>
+              <option value="What time of the day were you born?">
+                What time of the day were you born?
+              </option>
+              <option value="What was your dream job as a child?">
+                What was your dream job as a child?
+              </option>
+              <option
+                value="What is the street number of the house you grew up in?"
+              >
+                What is the street number of the house you grew up in?
+              </option>
+              <option value=" What was the first concert you attended?">
+                What was the first concert you attended?
+              </option>
+              <option value="What is vour grandmother's first name?">
+                What is vour grandmother's first name?
+              </option>
+            </select>
+            <label for="code">Question 1 *</label>
+            <div class="warn">
+              <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
+              this field to continue
+            </div>
+          </div>
+
+          <div class="inputGroup">
+            <input type="text" autocomplete="off" name="mobile" />
+            <label for="mobile">Answer 1 *</label>
+            <div class="warn">
+              <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
+              this field to continue
+            </div>
+          </div>
+          <div class="inputGroup">
+            <select name="code">
+              <option value disabled selected>Select</option>
+              <option value="What is your favourite book?">
+                What is your favourite book?
+              </option>
+              <option value="What is the name of the road you grew up on?">
+                What is the name of the road you grew up on?
+              </option>
+              <option value="What is your mothers maiden name?">
+                What is your mothers maiden name?
+              </option>
+              <option
+                value="What was the name of your first/current/favourite pet?"
+              >
+                What was the name of your first/current/favourite pet?
+              </option>
+              <option value="What was the first company that you worked for?">
+                What was the first company that you worked for?
+              </option>
+              <option value="Where did you meet your spouse?">
+                Where did you meet your spouse?
+              </option>
+              <option value="Where did you go to high school/college?">
+                Where did you go to high school/college?
+              </option>
+              <option value="What is your favourite food?">
+                What is your favourite food?
+              </option>
+              <option value="What city were you born in?">
+                What city were you born in?
+              </option>
+              <option value="Where is your favourite place to vacation?">
+                Where is your favourite place to vacation?
+              </option>
+              <option
+                value="What was the name of your elementary/primary school?"
+              >
+                What was the name of your elementary/primary school?
+              </option>
+              <option
+                value="What was your favourite place to visit as a child?"
+              >
+                What was your favourite place to visit as a child?
+              </option>
+              <option
+                value="What is the name of your favourite childhood teacher?"
+              >
+                What is the name of your favourite childhood teacher?
+              </option>
+              <option value="To what city did you go on your honeymoon?">
+                To what city did you go on your honeymoon?
+              </option>
+              <option value="What time of the day were you born?">
+                What time of the day were you born?
+              </option>
+              <option value="What was your dream job as a child?">
+                What was your dream job as a child?
+              </option>
+              <option
+                value="What is the street number of the house you grew up in?"
+              >
+                What is the street number of the house you grew up in?
+              </option>
+              <option value=" What was the first concert you attended?">
+                What was the first concert you attended?
+              </option>
+              <option value="What is vour grandmother's first name?">
+                What is vour grandmother's first name?
+              </option>
+            </select>
+            <label for="code">Question 2 *</label>
+            <div class="warn">
+              <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
+              this field to continue
+            </div>
+          </div>
+
+          <div class="inputGroup">
+            <input type="text" autocomplete="off" name="mobile" />
+            <label for="mobile">Answer 2 *</label>
+            <div class="warn">
+              <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
+              this field to continue
+            </div>
+          </div>
+
+          <div class="inputGroup pt-1 password-container">
+            <input type="{{ hide ? 'password' : 'text' }}" />
+            <i
+              class="toggle-password fa fa-eye text-secondary"
+              *ngIf="hide"
+              (click)="togglePassword()"
+            ></i
+            ><i
+              class="toggle-password fa fa-eye-slash text-primary"
+              (click)="togglePassword()"
+              *ngIf="!hide"
+            ></i>
+            <label for="mobile">Account Pin *</label>
+            <div class="Note">* Use 5-10 digits only</div>
+            <div class="warn">
+              <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
+              this field to continue
+            </div>
+          </div>
+          <div class="inputGroup pt-1 password-container">
+            <input type="{{ hide2 ? 'password' : 'text' }}" />
+            <i
+              class="toggle-password fa fa-eye text-secondary"
+              *ngIf="hide2"
+              (click)="togglePassword2()"
+            ></i
+            ><i
+              class="toggle-password fa fa-eye-slash text-primary"
+              (click)="togglePassword2()"
+              *ngIf="!hide2"
+            ></i>
+            <label for="mobile">confirm Pin *</label>
+            <div class="warn">
+              <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
+              this field to continue
+            </div>
+          </div>
+        </div>
+
+        <div class="Photos mt-3">
+          <div class="info1 mb-1">Miscellaneous</div>
+          <div class="radio text-center">
+            <div class="text-success mt-4 mb-3">
+              Are you a Politically Exposed Person (PEP)? *
+            </div>
+            <div class="radio1 d-flex justify-content-start w-100">
+              <div class="form-check w-50">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault1"
+                />
+                <label class="form-check-label ml-2" for="flexRadioDefault1">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                  checked
+                />
+                <label class="form-check-label ml-2" for="flexRadioDefault2">
+                  No
+                </label>
+              </div>
+            </div>
+            <div class="text-success mt-4 mb-3">
+              Are you the family member of a Politically Exposed Person (PEP)?
+            </div>
+            <div class="radio1 d-flex justify-content-start w-100">
+              <div class="form-check w-50">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault2"
+                />
+                <label class="form-check-label ml-2" for="flexRadioDefault1">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault2"
+                  checked
+                />
+                <label class="form-check-label ml-2" for="flexRadioDefault2">
+                  No
+                </label>
+              </div>
+            </div>
+            <div class="text-success mt-4 mb-3">
+              Are you a close associate of a Politically Exposed Person (PEP)? *
+            </div>
+            <div class="radio1 d-flex justify-content-start w-100">
+              <div class="form-check w-50">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault3"
+                />
+                <label class="form-check-label ml-2" for="flexRadioDefault1">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault3"
+                  checked
+                />
+                <label class="form-check-label ml-2" for="flexRadioDefault2">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="FATF">
+            The Financial Action Task Force (FAFT) defines Politically Exposed
+            Person (PEP) as: individuals who are or have been entrusted with
+            prominent public functions in a foreign country. Example: Heads of
+            State or of government, senior politicians, senior government or
+            executive council of governments, judicial, military officials,
+            senior executives of state owned corporation, important politically
+            party officials, ambassadors, attaches. Business relationships with
+            family members or close associates of PEPs involve reputational
+            risks similar to those with PEP themselves.
+          </div>
+        </div>
+        <div
+          class="btnContainer d-flex justify-content-between align-items-center w-100"
+        >
+          <button type="button" class="btn btn1 bg-secondary text-white w-50">
+            Back
+          </button>
+          <button type="button" class="btn btn2 bg-success text-white w-50">
+            Save and continue
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

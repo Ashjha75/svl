@@ -6,13 +6,14 @@ import { VerificationsComponent } from './verifications/verifications.component'
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
 import { PersonalInfoComponent } from './personal-info/personal-info.component';
 import { AddressIdentificationComponent } from './address-identification/address-identification.component';
+import { SecurityDetailsComponent } from './security-details/security-details.component';
 
 @NgModule({
-  declarations: [RegistrationComponent, VerificationsComponent, TermsConditionsComponent, PersonalInfoComponent, AddressIdentificationComponent],
+  declarations: [RegistrationComponent, VerificationsComponent, TermsConditionsComponent, PersonalInfoComponent, AddressIdentificationComponent, SecurityDetailsComponent],
   imports: [
     CommonModule,
     AuthenticationsRoutingModule
   ],
-  exports:  [RegistrationComponent, VerificationsComponent, TermsConditionsComponent, PersonalInfoComponent, AddressIdentificationComponent]
+  exports:  [RegistrationComponent, VerificationsComponent, TermsConditionsComponent, PersonalInfoComponent, AddressIdentificationComponent, SecurityDetailsComponent]
 })
 export class AuthenticationsModule { }

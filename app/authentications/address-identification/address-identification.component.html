@@ -143,7 +143,7 @@
           </div>
         </div>
 
-        <div class="Photos">
+        <div class="Photos mt-3">
           <div class="row1">
             Please upload a copy of your Government Issued Photo ID below:
           </div>
@@ -152,19 +152,43 @@
             clerly read)
           </div>
           <div class="faded">
-            <label for="file-input">
-              <img
-                src="./assets/images/register/profileimage.png"
-                alt="Select an image"
-              />
-            </label>
-            <input
-              type="file"
-              id="file-input"
-              name="image"
-              accept="image/*"
-              style="display: none"
-            />
+            <div class="imgmainContainer">
+              <div class="img1container">
+                <label for="file-input">
+                  <img
+                    src="./assets/images/register/front-upload.png"
+                    alt="Select an image"
+                  />
+                </label>
+                <input
+                  type="file"
+                  id="file-input"
+                  name="image"
+                  accept="image/*"
+                  style="display: none"
+                />
+              </div>
+              <div class="img1container">
+                <label for="file-input">
+                  <img
+                    src="./assets/images/register/back-upload.png"
+                    alt="Select an image"
+                  />
+                </label>
+                <input
+                  type="file"
+                  id="file-input"
+                  name="image"
+                  accept="image/*"
+                  style="display: none"
+                />
+              </div>
+            </div>
+
+            <div class="IdName">
+              <span>(Front Of ID)</span>
+              <span>(Back Of ID)</span>
+            </div>
             <div class="imgInfo">
               (Allowed document formats are : jpg, jpeg. png)
             </div>
@@ -173,9 +197,17 @@
           <div class="popup">
             Click here to view examples of proper upload or incorrect upload
           </div>
-          <div class="radio">
-            Opt for Digital top up and redemption via digital payment methods
-            Opt tor cash in and cash out at retail stores
+          <div class="radio text-center">
+            <label for="radio1 ">
+              <input type="radio" name="radio1" id="radio1" checked />
+              Opt for Digital top up and redemption via digital payment
+              methods</label
+            >
+
+            <label for="radio1">
+              <input type="radio" name="radio1" id="radio1" />Opt tor cash in
+              and cash out at retail stores</label
+            >
           </div>
         </div>
         <div

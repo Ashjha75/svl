@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="17" viewBox="0 0 17 17">
+  <defs>
+    <clipPath id="clip-help">
+      <rect width="17" height="17"/>
+    </clipPath>
+  </defs>
+  <g id="help" clip-path="url(#clip-help)">
+    <g id="information">
+      <g id="Group_3304" data-name="Group 3304">
+        <g id="Group_3303" data-name="Group 3303">
+          <path id="Path_7137" data-name="Path 7137" d="M8.5,0A8.5,8.5,0,1,0,17,8.5,8.5,8.5,0,0,0,8.5,0Zm0,15.672A7.172,7.172,0,1,1,15.672,8.5,7.168,7.168,0,0,1,8.5,15.672Z" fill="#656565"/>
+        </g>
+      </g>
+      <g id="Group_3306" data-name="Group 3306" transform="translate(7.836 7.116)">
+        <g id="Group_3305" data-name="Group 3305">
+          <path id="Path_7138" data-name="Path 7138" d="M236.664,214.33a.664.664,0,0,0-.664.664v4.276a.664.664,0,1,0,1.328,0v-4.276A.664.664,0,0,0,236.664,214.33Z" transform="translate(-236 -214.33)" fill="#656565"/>
+        </g>
+      </g>
+      <g id="Group_3308" data-name="Group 3308" transform="translate(7.604 4.51)">
+        <g id="Group_3307" data-name="Group 3307">
+          <circle id="Ellipse_478" data-name="Ellipse 478" cx="0.896" cy="0.896" r="0.896" fill="#656565"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
