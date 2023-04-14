@@ -7,16 +7,26 @@
     <div class="info1">Registration</div>
     <div class="info2">Enter your mobile number to register</div>
     <div class="forms">
-      <form>
+      <form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
         <div class="input-container">
           <div class="inputGroup">
-            <label for="code">Country code *</label>
-            <select name="code" id="code" (ngclick)="onclick2()">
+            <label for="code"
+              >Country code <span class="asterick text-danger">*</span></label
+            >
+            <select
+              name="code"
+              id="code"
+              (ngclick)="onclick2()"
+              formControlName="select"
+            >
               <option value disabled selected>Select</option>
               <option value="1">+1(JM)</option>
               <option value="91">+91(IN)</option>
             </select>
-            <div class="warn">
+            <div
+              class="warn"
+              *ngIf="select && select.invalid && select.touched"
+            >
               <i class="fa fa-info-circle error-info-icon mr-1"></i>Please fill
               this field to continue
             </div>
@@ -30,12 +40,14 @@
               placeholder="876-XXX-YYYY"
               name="mobile"
               id="myInput"
-              (ngclick)="onclick()"
+              formControlName="phone"
             />
-            <label for="mobile">Mobile Number *</label>
-            <div class="warn">
-              <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
-              this field to continue
+            <label for="mobile"
+              >Mobile Number <span class="asterick text-danger">*</span></label
+            >
+            <div class="warn" *ngIf="phone && phone.invalid && phone.touched">
+              <i class="fa fa-info-circle error-info-icon mr-1"></i>
+              Please fill this field to continue
             </div>
           </div>
         </div>
@@ -48,7 +60,7 @@
           <button type="button" class="btn btn1 bg-secondary text-white w-50">
             Cancel
           </button>
-          <button type="button" class="btn btn2 bg-success text-white w-50">
+          <button type="submit" class="btn btn2 bg-success text-white w-50">
             Send Code
           </button>
         </div>

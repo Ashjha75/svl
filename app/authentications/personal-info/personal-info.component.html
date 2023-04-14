@@ -8,7 +8,7 @@
     <div class="info1">Personal Details</div>
 
     <div class="forms">
-      <form>
+      <form [formGroup]="personalInfo" (ngSubmit)="onSubmit()">
         <div class="faded">
           <label for="file-input">
             <img
@@ -22,6 +22,7 @@
             name="image"
             accept="image/*"
             style="display: none"
+            formControlName="image"
           />
           <div class="imgInfo">
             (Allowed document formats are : jpg, jpeg. png)
@@ -30,21 +31,46 @@
         </div>
         <div class="input-container">
           <div class="inputGroup">
-            <input type="text" autocomplete="off" name="mobile" />
-            <label for="mobile">First Name *</label>
-            <div class="warn">
+            <input
+              type="text"
+              autocomplete="off"
+              name="mobile"
+              formControlName="fname"
+              [ngClass]="{
+                'invalid-input': fname && fname.touched && fname.invalid
+              }"
+            />
+            <label for="mobile"
+              >First Name <span class="asterick text-danger">*</span></label
+            >
+            <div class="warn" *ngIf="fname && fname.touched && fname.invalid">
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
             </div>
           </div>
           <div class="inputGroup">
-            <input type="text" autocomplete="off" name="mobile" />
-            <label for="mobile">Middle Name *</label>
+            <input
+              type="text"
+              autocomplete="off"
+              name="mobile"
+              formControlName="mname"
+            />
+            <label for="mobile">Middle Name </label>
           </div>
           <div class="inputGroup">
-            <input type="text" autocomplete="off" name="mobile" />
-            <label for="mobile">Last Name *</label>
-            <div class="warn">
+            <input
+              type="text"
+              autocomplete="off"
+              name="mobile"
+              formControlName="lname"
+              [ngClass]="{
+                'invalid-input': lname && lname.touched && lname.invalid
+              }"
+            />
+            <label for="mobile"
+              >Last Name <span class="asterick text-danger">*</span></label
+            >
+            <div class="warn" *ngIf="lname && lname.touched && lname.invalid">
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
             </div>
@@ -56,21 +82,39 @@
               id="date"
               autocomplete="off"
               name="mobile"
+              formControlName="date"
+              [ngClass]="{
+                'invalid-input': date && date.touched && date.invalid
+              }"
             />
-            <label for="mobile">Date Of Birth *</label>
-            <div class="warn">
+            <label for="mobile"
+              >Date Of Birth <span class="asterick text-danger">*</span></label
+            >
+            <div class="warn" *ngIf="date && date.touched && date.invalid">
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
             </div>
           </div>
           <div class="inputGroup">
-            <select name="gender" id="gender">
+            <select
+              name="gender"
+              id="gender"
+              formControlName="gender"
+              [ngClass]="{
+                'invalid-input': gender && gender.touched && gender.invalid
+              }"
+            >
               <option value disabled selected>Gender</option>
               <option value="Female">Female</option>
               <option value="Male">Male</option>
             </select>
-            <label for="mobile">Date Of Birth *</label>
-            <div class="warn">
+            <label for="mobile"
+              >Gender<span class="asterick text-danger">*</span></label
+            >
+            <div
+              class="warn"
+              *ngIf="gender && gender.touched && gender.invalid"
+            >
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
             </div>
@@ -85,7 +129,10 @@
                 (click)="onClicked()"
               />
             </div>
-            <label for="soValue">Country Of Birth *</label>
+            <label for="soValue"
+              >Country Of Birth
+              <span class="asterick text-danger">*</span></label
+            >
             <div class="content" *ngIf="toggleoption">
               <div class="search">
                 <input type="search" id="optionSearch" placeholder="Search" />
@@ -114,7 +161,9 @@
                 (click)="onClicked2()"
               />
             </div>
-            <label for="soValue">Nationality*</label>
+            <label for="soValue"
+              >Nationality<span class="asterick text-danger">*</span></label
+            >
             <div class="content" *ngIf="toggleoption2">
               <div class="search">
                 <input type="search" id="optionSearch" placeholder="Search" />
@@ -135,12 +184,12 @@
           </div>
         </div>
         <div
-          class="btnContainer d-flex justify-content-between align-items-center w-100"
+          class="btnContainer d-flex justify-content-between align-items-center"
         >
-          <button type="button" class="btn btn1 bg-secondary text-white w-50">
+          <button type="button" class="btn btn1 bg-secondary text-white w-25">
             Back
           </button>
-          <button type="button" class="btn btn2 bg-success text-white w-50">
+          <button type="submit" class="btn btn2 bg-success text-white">
             Save and continue
           </button>
         </div>

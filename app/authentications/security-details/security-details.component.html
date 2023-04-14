@@ -2,17 +2,23 @@
   <div class="out-container">
     <div>Registration</div>
     <div class="imgc">
-      <img src="./assets/images/register/signup-1.png" />
+      <img src="./assets/images/register/signup-3.png" />
     </div>
   </div>
   <div class="formContainer">
     <div class="info1">Security Details</div>
 
     <div class="forms">
-      <form>
+      <form [formGroup]="securityForm" (ngSubmit)="onSubmit()">
         <div class="input-container">
           <div class="inputGroup">
-            <select name="code">
+            <select
+              name="code"
+              formControlName="ques1"
+              [ngClass]="{
+                'invalid-input': ques1 && ques1.invalid && ques1.touched
+              }"
+            >
               <option value disabled selected>Select</option>
               <option value="What is your favourite book?">
                 What is your favourite book?
@@ -82,23 +88,39 @@
                 What is vour grandmother's first name?
               </option>
             </select>
-            <label for="code">Question 1 *</label>
-            <div class="warn">
+            <label for="code"
+              >Question 1 <span class="asterick text-danger">*</span></label
+            >
+            <div class="warn" *ngIf="ques1 && ques1.invalid && ques1.touched">
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
             </div>
           </div>
 
           <div class="inputGroup">
-            <input type="text" autocomplete="off" name="mobile" />
-            <label for="mobile">Answer 1 *</label>
-            <div class="warn">
+            <input
+              type="text"
+              autocomplete="off"
+              name="mobile"
+              [ngClass]="{
+                'invalid-input': ans1 && ans1.invalid && ans1.touched
+              }"
+            />
+            <label for="mobile"
+              >Answer 1 <span class="asterick text-danger">*</span></label
+            >
+            <div class="warn" *ngIf="ans1 && ans1.invalid && ans1.touched">
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
             </div>
           </div>
           <div class="inputGroup">
-            <select name="code">
+            <select
+              name="code"
+              [ngClass]="{
+                'invalid-input': ques2 && ques2.invalid && ques2.touched
+              }"
+            >
               <option value disabled selected>Select</option>
               <option value="What is your favourite book?">
                 What is your favourite book?
@@ -168,17 +190,28 @@
                 What is vour grandmother's first name?
               </option>
             </select>
-            <label for="code">Question 2 *</label>
-            <div class="warn">
+            <label for="code"
+              >Question 2 <span class="asterick text-danger">*</span></label
+            >
+            <div class="warn" *ngIf="ques2 && ques2.invalid && ques2.touched">
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
             </div>
           </div>
 
           <div class="inputGroup">
-            <input type="text" autocomplete="off" name="mobile" />
-            <label for="mobile">Answer 2 *</label>
-            <div class="warn">
+            <input
+              type="text"
+              autocomplete="off"
+              name="mobile"
+              [ngClass]="{
+                'invalid-input': ans2 && ans2.invalid && ans2.touched
+              }"
+            />
+            <label for="mobile"
+              >Answer 2 <span class="asterick text-danger">*</span></label
+            >
+            <div class="warn" *ngIf="ans2 && ans2.invalid && ans2.touched">
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
             </div>
@@ -196,7 +229,9 @@
               (click)="togglePassword()"
               *ngIf="!hide"
             ></i>
-            <label for="mobile">Account Pin *</label>
+            <label for="mobile"
+              >Account Pin <span class="asterick text-danger">*</span></label
+            >
             <div class="Note">* Use 5-10 digits only</div>
             <div class="warn">
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
@@ -215,7 +250,9 @@
               (click)="togglePassword2()"
               *ngIf="!hide2"
             ></i>
-            <label for="mobile">confirm Pin *</label>
+            <label for="mobile"
+              >confirm Pin <span class="asterick text-danger">*</span></label
+            >
             <div class="warn">
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
@@ -225,31 +262,34 @@
 
         <div class="Photos mt-3">
           <div class="info1 mb-1">Miscellaneous</div>
-          <div class="radio text-center">
+          <div class="radio">
             <div class="text-success mt-4 mb-3">
-              Are you a Politically Exposed Person (PEP)? *
+              Are you a Politically Exposed Person (PEP)?<span
+                class="asterick text-danger"
+                >*</span
+              >
             </div>
-            <div class="radio1 d-flex justify-content-start w-100">
-              <div class="form-check w-50">
+            <div class="radio1 row ml-2 d-flex justify-content-start w-100">
+              <div class="col-6 form-check">
                 <input
                   class="form-check-input"
                   type="radio"
+                  formControlName="flexRadioDefault"
                   name="flexRadioDefault"
-                  id="flexRadioDefault1"
                 />
                 <label class="form-check-label ml-2" for="flexRadioDefault1">
                   Yes
                 </label>
               </div>
-              <div class="form-check">
+              <div class="col-6 form-check">
                 <input
                   class="form-check-input"
                   type="radio"
+                  formControlName="flexRadioDefault"
                   name="flexRadioDefault"
-                  id="flexRadioDefault2"
                   checked
                 />
-                <label class="form-check-label ml-2" for="flexRadioDefault2">
+                <label class="form-check-label ml-2" for="flexRadioDefault">
                   No
                 </label>
               </div>
@@ -257,21 +297,23 @@
             <div class="text-success mt-4 mb-3">
               Are you the family member of a Politically Exposed Person (PEP)?
             </div>
-            <div class="radio1 d-flex justify-content-start w-100">
-              <div class="form-check w-50">
+            <div class="row ml-2 radio1 d-flex justify-content-start w-100">
+              <div class="col-6 form-check">
                 <input
                   class="form-check-input"
                   type="radio"
+                  formControlName="flexRadioDefault2"
                   name="flexRadioDefault2"
                 />
-                <label class="form-check-label ml-2" for="flexRadioDefault1">
+                <label class="form-check-label ml-2" for="flexRadioDefault2">
                   Yes
                 </label>
               </div>
-              <div class="form-check">
+              <div class="col-6 form-check">
                 <input
                   class="form-check-input"
                   type="radio"
+                  formControlName="flexRadioDefault2"
                   name="flexRadioDefault2"
                   checked
                 />
@@ -281,34 +323,37 @@
               </div>
             </div>
             <div class="text-success mt-4 mb-3">
-              Are you a close associate of a Politically Exposed Person (PEP)? *
+              Are you a close associate of a Politically Exposed Person (PEP)?
+              <span class="asterick text-danger">*</span>
             </div>
-            <div class="radio1 d-flex justify-content-start w-100">
-              <div class="form-check w-50">
+            <div class="radio1 ml-2 row d-flex justify-content-start w-100">
+              <div class="col-6 form-check">
                 <input
                   class="form-check-input"
                   type="radio"
                   name="flexRadioDefault3"
+                  formControlName="flexRadioDefault3"
                 />
-                <label class="form-check-label ml-2" for="flexRadioDefault1">
+                <label class="form-check-label ml-2" for="flexRadioDefault3">
                   Yes
                 </label>
               </div>
-              <div class="form-check">
+              <div class="col-6 form-check">
                 <input
                   class="form-check-input"
                   type="radio"
+                  formControlName="flexRadioDefault3"
                   name="flexRadioDefault3"
                   checked
                 />
-                <label class="form-check-label ml-2" for="flexRadioDefault2">
+                <label class="form-check-label ml-2" for="flexRadioDefault3">
                   No
                 </label>
               </div>
             </div>
           </div>
           <div class="FATF">
-            The Financial Action Task Force (FAFT) defines Politically Exposed
+            The Financial Action Task Force (FATF) defines Politically Exposed
             Person (PEP) as: individuals who are or have been entrusted with
             prominent public functions in a foreign country. Example: Heads of
             State or of government, senior politicians, senior government or
@@ -320,12 +365,12 @@
           </div>
         </div>
         <div
-          class="btnContainer d-flex justify-content-between align-items-center w-100"
+          class="btnContainer d-flex justify-content-between align-items-center"
         >
           <button type="button" class="btn btn1 bg-secondary text-white w-50">
             Back
           </button>
-          <button type="button" class="btn btn2 bg-success text-white w-50">
+          <button type="button" class="btn btn2 bg-success text-white w-100">
             Save and continue
           </button>
         </div>

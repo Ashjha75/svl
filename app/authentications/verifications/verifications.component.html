@@ -8,21 +8,28 @@
   <div class="formContainer">
     <div class="info1">Registration</div>
     <div class="forms">
-      <form>
+      <form [formGroup]="Verification" (ngSubmit)="onSubmit()">
         <div class="input-container">
           <div class="inputGroup">
             <input
               type="number"
-              required=""
+              required
               autocomplete="off"
               name="mobile"
               id="myInput"
+              formControlName="verfcode"
             />
-            <label for="mobile">Verification Code *</label>
-            <div class="warn">
+            <label for="mobile"
+              >Verification Code
+              <span class="asterick text-danger">*</span></label
+            >
+            <span
+              class="warn"
+              *ngIf="verfcode && verfcode.invalid && verfcode.touched"
+            >
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
-            </div>
+            </span>
           </div>
           <div class="inputGroup d-flex">
             <input
@@ -33,6 +40,7 @@
               name="referal"
               id="myReferal"
               class="w-100"
+              formControlName="Refferal"
             />
             <label for="referal">Refferal Code</label>
             <button class="btn clear" type="reset">Clear</button>
@@ -45,7 +53,7 @@
           <button type="button" class="btn btn1 text-white w-50">
             Resend Code
           </button>
-          <button type="button" class="btn btn2 bg-success text-white w-50">
+          <button type="submit" class="btn btn2 bg-success text-white w-50">
             Verify Code
           </button>
         </div>

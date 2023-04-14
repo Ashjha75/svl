@@ -7,16 +7,26 @@ import {FormGroup,FormBuilder,Validators} from "@angular/forms";
 })
 export class RegistrationComponent implements OnInit {
 
-  // inputForm:FormGroup;
-  // constructor(private fb: FormBuilder) { }
+  inputForm:FormGroup;
+  constructor(private fb: FormBuilder) { }
  
 
 
   ngOnInit() {
+    this.inputForm=this.fb.group({
+      'select':['',[Validators.required]],
+      'phone':[' ',[Validators.required,Validators.min(10)]]
+    })
    
   }
-  // onSubmit() {
-  //   console.log(this.inputForm.value);
-  // }
+  onSubmit() {
+    console.log(this.inputForm.value);
+  }
+  get select(){
+   return this.inputForm.get('select');
+  }
+  get phone(){
+   return this.inputForm.get('phone');
+  }
 
 }

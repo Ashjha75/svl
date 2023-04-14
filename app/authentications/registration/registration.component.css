@@ -65,7 +65,6 @@ form .inputGroup .note {
 .warn {
   color: var(--red);
   font-size: 10px;
-  display: none;
 }
 
 form .inputGroup select {

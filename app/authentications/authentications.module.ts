@@ -7,13 +7,16 @@ import { TermsConditionsComponent } from './terms-conditions/terms-conditions.co
 import { PersonalInfoComponent } from './personal-info/personal-info.component';
 import { AddressIdentificationComponent } from './address-identification/address-identification.component';
 import { SecurityDetailsComponent } from './security-details/security-details.component';
-
+import { ReviewRegisterationComponent } from './review-registeration/review-registeration.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [RegistrationComponent, VerificationsComponent, TermsConditionsComponent, PersonalInfoComponent, AddressIdentificationComponent, SecurityDetailsComponent],
+  declarations: [RegistrationComponent,VerificationsComponent, TermsConditionsComponent, PersonalInfoComponent, AddressIdentificationComponent, SecurityDetailsComponent, ReviewRegisterationComponent],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     AuthenticationsRoutingModule
   ],
-  exports:  [RegistrationComponent, VerificationsComponent, TermsConditionsComponent, PersonalInfoComponent, AddressIdentificationComponent, SecurityDetailsComponent]
+  exports: [RegistrationComponent, VerificationsComponent, TermsConditionsComponent, PersonalInfoComponent, AddressIdentificationComponent, SecurityDetailsComponent, ReviewRegisterationComponent]
 })
 export class AuthenticationsModule { }

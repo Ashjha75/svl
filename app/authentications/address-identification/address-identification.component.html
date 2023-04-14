@@ -9,29 +9,58 @@
     <div class="info1">Permanent Address and Identification</div>
 
     <div class="forms">
-      <form>
+      <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
         <div class="input-container">
           <div class="inputGroup">
-            <input type="text" autocomplete="off" name="mobile" />
-            <label for="mobile">Street Address *</label>
+            <input
+              type="text"
+              autocomplete="off"
+              name="mobile"
+              formControlName="street"
+              [ngClass]="{
+                'invalid-input': street && street.invalid && street.touched
+              }"
+            />
+            <label for="mobile"
+              >Street Address <span class="asterick text-danger">*</span></label
+            >
             <div class="Note">*Residential only No PO Box</div>
-            <div class="warn">
+            <div
+              class="warn"
+              *ngIf="street && street.invalid && street.touched"
+            >
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
             </div>
           </div>
           <div class="inputGroup pt-1">
-            <input type="text" autocomplete="off" name="mobile" />
+            <input
+              type="text"
+              autocomplete="off"
+              name="mobile"
+              formControlName="suite"
+            />
             <label for="mobile">Apartment/Suite</label>
           </div>
           <div class="inputGroup">
-            <select name="code">
+            <select
+              name="code"
+              formControlName="parish"
+              [ngClass]="{
+                'invalid-input': parish && parish.invalid && parish.touched
+              }"
+            >
               <option value disabled selected>Select</option>
               <option value="option1">option1</option>
               <option value="option2">option2</option>
             </select>
-            <label for="code">Parish*</label>
-            <div class="warn">
+            <label for="code"
+              >Parish <span class="asterick text-danger">*</span></label
+            >
+            <div
+              class="warn"
+              *ngIf="parish && parish.invalid && parish.touched"
+            >
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
             </div>
@@ -46,7 +75,9 @@
                 (click)="onClicked()"
               />
             </div>
-            <label for="soValue">Town*</label>
+            <label for="soValue"
+              >Town <span class="asterick text-danger">*</span></label
+            >
             <div class="content" *ngIf="toggleoption">
               <div class="search">
                 <input type="search" id="optionSearch" placeholder="Search" />
@@ -75,7 +106,9 @@
                 (click)="onClicked2()"
               />
             </div>
-            <label for="soValue">District*</label>
+            <label for="soValue"
+              >District <span class="asterick text-danger">*</span></label
+            >
             <div class="content" *ngIf="toggleoption2">
               <div class="search">
                 <input type="search" id="optionSearch" placeholder="Search" />
@@ -100,29 +133,57 @@
               placeholder="email"
               autocomplete="off"
               name="mobile"
+              formControlName="email"
+              [ngClass]="{
+                'invalid-input': email && email.invalid && email.touched
+              }"
             />
-            <label for="mobile">Email *</label>
-            <div class="warn">
+            <label for="mobile"
+              >Email <span class="asterick text-danger">*</span></label
+            >
+            <div class="warn" *ngIf="email && email.invalid && email.touched">
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
             </div>
           </div>
           <div class="inputGroup">
-            <select name="gender" id="gender">
+            <select
+              name="gender"
+              id="gender"
+              formControlName="idtype"
+              [ngClass]="{
+                'invalid-input': idtype && idtype.invalid && idtype.touched
+              }"
+            >
               <option value disabled selected>Select</option>
               <option value="option1">option1</option>
               <option value="option2">option2</option>
             </select>
-            <label for="mobile">ID Type *</label>
-            <div class="warn">
+            <label for="mobile"
+              >ID Type <span class="asterick text-danger">*</span></label
+            >
+            <div
+              class="warn"
+              *ngIf="idtype && idtype.invalid && idtype.touched"
+            >
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
             </div>
           </div>
           <div class="inputGroup">
-            <input type="number" autocomplete="off" name="mobile" />
-            <label for="mobile">Id Number *</label>
-            <div class="warn">
+            <input
+              type="number"
+              autocomplete="off"
+              name="mobile"
+              formControlName="idnum"
+              [ngClass]="{
+                'invalid-input': idnum && idnum.invalid && idnum.touched
+              }"
+            />
+            <label for="mobile"
+              >Id Number <span class="asterick text-danger">*</span></label
+            >
+            <div class="warn" *ngIf="idnum && idnum.invalid && idnum.touched">
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
             </div>
@@ -134,9 +195,20 @@
               id="date"
               autocomplete="off"
               name="mobile"
+              formControlName="expiration"
+              [ngClass]="{
+                'invalid-input':
+                  expiration && expiration.invalid && expiration.touched
+              }"
             />
-            <label for="mobile">Id Expiration Date *</label>
-            <div class="warn">
+            <label for="mobile"
+              >Id Expiration Date
+              <span class="asterick text-danger">*</span></label
+            >
+            <div
+              class="warn"
+              *ngIf="expiration && expiration.invalid && expiration.touched"
+            >
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
             </div>
@@ -166,10 +238,11 @@
                   name="image"
                   accept="image/*"
                   style="display: none"
+                  formControlName="img1"
                 />
               </div>
               <div class="img1container">
-                <label for="file-input">
+                <label for="file-input2">
                   <img
                     src="./assets/images/register/back-upload.png"
                     alt="Select an image"
@@ -177,10 +250,11 @@
                 </label>
                 <input
                   type="file"
-                  id="file-input"
+                  id="file-input2"
                   name="image"
                   accept="image/*"
                   style="display: none"
+                  formControlName="img2"
                 />
               </div>
             </div>
@@ -197,17 +271,35 @@
           <div class="popup">
             Click here to view examples of proper upload or incorrect upload
           </div>
-          <div class="radio text-center">
-            <label for="radio1 ">
-              <input type="radio" name="radio1" id="radio1" checked />
-              Opt for Digital top up and redemption via digital payment
-              methods</label
-            >
 
-            <label for="radio1">
-              <input type="radio" name="radio1" id="radio1" />Opt tor cash in
-              and cash out at retail stores</label
-            >
+          <div class="radio1 row">
+            <div class="col form-check mb-4">
+              <input
+                class="form-check-input"
+                type="radio"
+                checked
+                name="radio1"
+                id="radio1"
+                value="2"
+                formControlName="radio1"
+              />
+              <label class="form-check-label ml-2" for="radio1">
+                Opt for Digital top up and redemption via digital payment
+                methods
+              </label>
+            </div>
+            <div class="col-12 form-check mb-3">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="radio1"
+                value="1"
+                formControlName="radio1"
+              />
+              <label class="form-check-label ml-2" for="radio1">
+                Opt tor cash in and cash out at retail stores
+              </label>
+            </div>
           </div>
         </div>
         <div
@@ -216,7 +308,7 @@
           <button type="button" class="btn btn1 bg-secondary text-white w-50">
             Back
           </button>
-          <button type="button" class="btn btn2 bg-success text-white w-50">
+          <button type="submit" class="btn btn2 bg-success text-white w-50">
             Save and continue
           </button>
         </div>

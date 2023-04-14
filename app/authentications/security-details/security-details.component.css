@@ -30,7 +30,7 @@
   background: #fff;
   padding: 35px !important;
   border: 3px solid #269c2f;
-  margin-bottom: 1rem;
+  margin-bottom: 5rem;
   margin-top: 10px;
   /* min-width: 450px; */
   width: 29vw;
@@ -61,7 +61,6 @@ form .inputGroup .note {
 .warn {
   color: var(--red);
   font-size: 10px;
-  display: none;
 }
 
 form .inputGroup input,
@@ -86,6 +85,10 @@ form .verify {
 }
 form .inputGroup input:focus {
   border: 1px solid var(--green);
+}
+form .inputGroup input.invalid-input,
+select.invalid-input {
+  border: 2px solid red;
 }
 
 form .inputGroup label {
@@ -190,7 +193,6 @@ input[type="radio"] {
     background-repeat: repeat;
     background-position: left;
     width: 100%;
-    height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -260,6 +262,14 @@ input[type="radio"] {
     padding: 4px 0px !important;
     margin-left: 12px;
     max-width: 27%;
+  }
+  form .btnContainer .btn {
+    margin: 15px 4px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    height: 45px;
   }
 }
 select {

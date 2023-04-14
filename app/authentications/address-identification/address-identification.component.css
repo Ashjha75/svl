@@ -63,7 +63,6 @@ form .inputGroup .note {
 .warn {
   color: var(--red);
   font-size: 10px;
-  display: none;
 }
 
 form .inputGroup input,
@@ -88,6 +87,10 @@ form .verify {
 }
 form .inputGroup input:focus {
   border: 1px solid var(--green);
+}
+form .inputGroup input.invalid-input,
+select.invalid-input {
+  border: 2px solid red;
 }
 
 form .inputGroup label {
@@ -182,7 +185,6 @@ input::-webkit-inner-spin-button {
 input[type="radio"] {
   height: 20px;
   width: 20px;
-  margin-top: 35px;
   margin-right: 15px;
   accent-color: var(--green);
 }
@@ -322,7 +324,7 @@ input[type="radio"] {
   transform: rotateZ(45deg);
   top: -3.8%;
   left: 2%;
-  z-index: 0;
+  z-index: 1;
 }
 .Note {
   float: right;
