@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-security-details',
   templateUrl: './security-details.component.html',
@@ -11,7 +11,7 @@ export class SecurityDetailsComponent implements OnInit {
   hide2 = true;
   securityForm:FormGroup
 
-  constructor(private fb : FormBuilder) { }
+  constructor(private fb : FormBuilder,private router:Router) { }
 
   ngOnInit() {
     this.securityForm=this.fb.group({
@@ -19,9 +19,11 @@ export class SecurityDetailsComponent implements OnInit {
       ans1:['',Validators.required],
       ques2:['',Validators.required],
       ans2:['',Validators.required],
-      flexRadioDefault:['',Validators.required],
-      flexRadioDefault2:['',Validators.required],
-      flexRadioDefault3:['',Validators.required],
+      pass1:['',Validators.required],
+      pass2:['',Validators.required],
+      flexRadioDefault:['No',Validators.required],
+      flexRadioDefault2:['No',Validators.required],
+      flexRadioDefault3:['No',Validators.required],
     })
   }
  
@@ -34,7 +36,7 @@ export class SecurityDetailsComponent implements OnInit {
   }
   onSubmit(){
     console.table(this.securityForm.value);
-    
+    this.router.navigate(['/review']);
    }
    get ques1(){
     return this.securityForm.get('ques1');
@@ -47,6 +49,13 @@ export class SecurityDetailsComponent implements OnInit {
    }
    get ans2(){
     return this.securityForm.get('ans2');
+   }
+  
+   get pass1(){
+    return this.securityForm.get('pass1');
+   }
+   get pass2(){
+    return this.securityForm.get('pass2');
    }
   
     

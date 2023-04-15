@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-personal-info',
   templateUrl: './personal-info.component.html',
@@ -11,7 +11,7 @@ export class PersonalInfoComponent implements OnInit {
   personalInfo:FormGroup;
   toggleoption=false;
   toggleoption2=false;
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,private router : Router) { }
 
   ngOnInit() {
     this.personalInfo=this.fb.group({
@@ -33,7 +33,8 @@ export class PersonalInfoComponent implements OnInit {
   this.toggleoption=false;
  }
  onSubmit(){
-  console.table(this.personalInfo.value)
+  console.table(this.personalInfo.value);
+  this.router.navigate(['/address'])
  }
 get fname(){
   return this.personalInfo.get('fname');

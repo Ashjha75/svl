@@ -35,17 +35,15 @@
           <div class="inputGroup">
             <input
               type="number"
-              required=""
               autocomplete="off"
               placeholder="876-XXX-YYYY"
               name="mobile"
-              id="myInput"
               formControlName="phone"
             />
             <label for="mobile"
               >Mobile Number <span class="asterick text-danger">*</span></label
             >
-            <div class="warn" *ngIf="phone && phone.invalid && phone.touched">
+            <div class="warn" *ngIf="phone && phone.touched && form.invalid">
               <i class="fa fa-info-circle error-info-icon mr-1"></i>
               Please fill this field to continue
             </div>
@@ -60,7 +58,11 @@
           <button type="button" class="btn btn1 bg-secondary text-white w-50">
             Cancel
           </button>
-          <button type="submit" class="btn btn2 bg-success text-white w-50">
+          <button
+            type="submit"
+            class="btn btn2 bg-success text-white w-50"
+            [disabled]="inputForm && inputForm.invalid"
+          >
             Send Code
           </button>
         </div>
@@ -68,7 +70,3 @@
     </div>
   </div>
 </div>
-
-<!-- 
-
- -->

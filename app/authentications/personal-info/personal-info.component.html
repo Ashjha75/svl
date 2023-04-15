@@ -186,10 +186,14 @@
         <div
           class="btnContainer d-flex justify-content-between align-items-center"
         >
-          <button type="button" class="btn btn1 bg-secondary text-white w-25">
+          <button type="button" class="btn btn1 bg-secondary text-white w-50">
             Back
           </button>
-          <button type="submit" class="btn btn2 bg-success text-white">
+          <button
+            type="submit"
+            [disabled]="personalInfo && personalInfo.invalid"
+            class="btn btn2 bg-success text-white w-100"
+          >
             Save and continue
           </button>
         </div>

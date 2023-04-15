@@ -102,6 +102,7 @@
               type="text"
               autocomplete="off"
               name="mobile"
+              formControlName="ans1"
               [ngClass]="{
                 'invalid-input': ans1 && ans1.invalid && ans1.touched
               }"
@@ -117,6 +118,7 @@
           <div class="inputGroup">
             <select
               name="code"
+              formControlName="ques2"
               [ngClass]="{
                 'invalid-input': ques2 && ques2.invalid && ques2.touched
               }"
@@ -204,6 +206,7 @@
               type="text"
               autocomplete="off"
               name="mobile"
+              formControlName="ans2"
               [ngClass]="{
                 'invalid-input': ans2 && ans2.invalid && ans2.touched
               }"
@@ -218,7 +221,13 @@
           </div>
 
           <div class="inputGroup pt-1 password-container">
-            <input type="{{ hide ? 'password' : 'text' }}" />
+            <input
+              type="{{ hide ? 'password' : 'text' }}"
+              formControlName="pass1"
+              [ngClass]="{
+                'invalid-input': pass1 && pass1.invalid && pass1.touched
+              }"
+            />
             <i
               class="toggle-password fa fa-eye text-secondary"
               *ngIf="hide"
@@ -233,13 +242,19 @@
               >Account Pin <span class="asterick text-danger">*</span></label
             >
             <div class="Note">* Use 5-10 digits only</div>
-            <div class="warn">
+            <div class="warn" *ngIf="pass1 && pass1.invalid && pass1.touched">
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
             </div>
           </div>
           <div class="inputGroup pt-1 password-container">
-            <input type="{{ hide2 ? 'password' : 'text' }}" />
+            <input
+              type="{{ hide2 ? 'password' : 'text' }}"
+              formControlName="pass2"
+              [ngClass]="{
+                'invalid-input': pass2 && pass2.invalid && pass2.touched
+              }"
+            />
             <i
               class="toggle-password fa fa-eye text-secondary"
               *ngIf="hide2"
@@ -253,7 +268,7 @@
             <label for="mobile"
               >confirm Pin <span class="asterick text-danger">*</span></label
             >
-            <div class="warn">
+            <div class="warn" *ngIf="pass2 && pass2.invalid && pass2.touched">
               <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
               this field to continue
             </div>
@@ -276,6 +291,7 @@
                   type="radio"
                   formControlName="flexRadioDefault"
                   name="flexRadioDefault"
+                  value="Yes"
                 />
                 <label class="form-check-label ml-2" for="flexRadioDefault1">
                   Yes
@@ -287,7 +303,7 @@
                   type="radio"
                   formControlName="flexRadioDefault"
                   name="flexRadioDefault"
-                  checked
+                  value="No"
                 />
                 <label class="form-check-label ml-2" for="flexRadioDefault">
                   No
@@ -304,6 +320,7 @@
                   type="radio"
                   formControlName="flexRadioDefault2"
                   name="flexRadioDefault2"
+                  value="Yes"
                 />
                 <label class="form-check-label ml-2" for="flexRadioDefault2">
                   Yes
@@ -315,7 +332,7 @@
                   type="radio"
                   formControlName="flexRadioDefault2"
                   name="flexRadioDefault2"
-                  checked
+                  value="No"
                 />
                 <label class="form-check-label ml-2" for="flexRadioDefault2">
                   No
@@ -333,6 +350,7 @@
                   type="radio"
                   name="flexRadioDefault3"
                   formControlName="flexRadioDefault3"
+                  value="Yes"
                 />
                 <label class="form-check-label ml-2" for="flexRadioDefault3">
                   Yes
@@ -344,7 +362,7 @@
                   type="radio"
                   formControlName="flexRadioDefault3"
                   name="flexRadioDefault3"
-                  checked
+                  value="No"
                 />
                 <label class="form-check-label ml-2" for="flexRadioDefault3">
                   No
@@ -370,7 +388,11 @@
           <button type="button" class="btn btn1 bg-secondary text-white w-50">
             Back
           </button>
-          <button type="button" class="btn btn2 bg-success text-white w-100">
+          <button
+            type="submit"
+            [disabled]="securityForm && securityForm.invalid"
+            class="btn btn2 bg-success text-white w-100"
+          >
             Save and continue
           </button>
         </div>
