@@ -2,10 +2,32 @@ import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-
-
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 @Injectable()
 export class CommonService extends BaseService {
+
+
+	public register(body): Observable<any> {
+		const headers = new HttpHeaders({
+			'Content-Type': 'application/json',
+			'Platform-type': 'JM',
+			'Client-type': 'WEB'
+		});
+		const url = '/api/register-mobile';
+		return this.regularPostRequest(url, body, headers);
+	}
+	public otpVerify(body): Observable<any> {
+		const headers = new HttpHeaders({
+			'Access-Medium': ,
+			'Platform-type': 'JM',
+			'Client-type': 'WEB'
+		})
+		const url = '/api/verify-otp';
+		return this.regularPostRequest(url, body, headers);
+
+	}
+
 
 	/* Generic HTTP requests */
 	regularPostRequest(url, formData, headers) {

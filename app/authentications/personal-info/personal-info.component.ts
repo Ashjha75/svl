@@ -8,47 +8,58 @@ import { Router } from '@angular/router';
 })
 export class PersonalInfoComponent implements OnInit {
 
-  personalInfo:FormGroup;
-  toggleoption=false;
-  toggleoption2=false;
-  constructor(private fb:FormBuilder,private router : Router) { }
+  personalInfo: FormGroup;
+  val = '';
+  toggleoption = false;
+  toggleoption2 = false;
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit() {
-    this.personalInfo=this.fb.group({
-      image:['',Validators.required],
-      fname:['',Validators.required],
-      mname:['',Validators.required],
-      lname:['',Validators.required],
-      date:['',Validators.required],
-      gender:['',Validators.required],
+    this.personalInfo = this.fb.group({
+      image: ['', Validators.required],
+      fname: ['', Validators.required],
+      mname: ['', Validators.required],
+      lname: ['', Validators.required],
+      date: ['', Validators.required],
+      gender: ['', Validators.required],
+      cob: [''],
+      checks1: [''],
+      checks2: ['']
     })
+
   }
 
- onClicked(){
-  this.toggleoption=!this.toggleoption;
-  this.toggleoption2=false;
- }
- onClicked2(){
-  this.toggleoption2=!this.toggleoption2;
-  this.toggleoption=false;
- }
- onSubmit(){
-  console.table(this.personalInfo.value);
-  this.router.navigate(['/address'])
- }
-get fname(){
-  return this.personalInfo.get('fname');
-}
-get mname(){
-  return this.personalInfo.get('mname');
-}
-get lname(){
-  return this.personalInfo.get('lname');
-}
-get date(){
-  return this.personalInfo.get('date');
-}
-get gender(){
-  return this.personalInfo.get('gender');
-}
+
+  onClicked() {
+    this.toggleoption = !this.toggleoption;
+    this.toggleoption2 = false;
+  }
+  onClicked2() {
+    this.toggleoption2 = !this.toggleoption2;
+    this.toggleoption = false;
+  }
+  onClicked3() {
+    this.toggleoption = false;
+    this.toggleoption2 = false;
+
+  }
+  onSubmit() {
+    console.table(this.personalInfo.value);
+    this.router.navigate(['/address'])
+  }
+  get fname() {
+    return this.personalInfo.get('fname');
+  }
+  get mname() {
+    return this.personalInfo.get('mname');
+  }
+  get lname() {
+    return this.personalInfo.get('lname');
+  }
+  get date() {
+    return this.personalInfo.get('date');
+  }
+  get gender() {
+    return this.personalInfo.get('gender');
+  }
 }

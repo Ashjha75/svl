@@ -68,6 +68,7 @@
           <div class="inputGroup select-box position-relative">
             <div class="select-option d-flex mt-2">
               <input
+                type="text"
                 readonly
                 name=""
                 placeholder="select"
@@ -83,26 +84,82 @@
                 <input type="search" id="optionSearch" placeholder="Search" />
               </div>
               <ul class="options">
-                <li>Html</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>TypeScript</li>
-                <li>React</li>
-                <li>Angular</li>
-                <li>Django</li>
-                <li>Php</li>
-                <li>Sql</li>
-                <li>Api</li>
+                <li (click)="onClicked3()">
+                  <label for="r1"
+                    ><input
+                      type="radio"
+                      name="checks1"
+                      formControlName="checks1"
+                      value="1"
+                      id="r1"
+                    />
+                    Html</label
+                  >
+                </li>
+                <li (click)="onClicked3()">
+                  <label for="r2"
+                    ><input
+                      type="radio"
+                      name="checks1"
+                      id="r2"
+                      formControlName="checks1"
+                      value="2"
+                    />
+                    CSS</label
+                  >
+                </li>
+                <li (click)="onClicked3()">
+                  <label for="r3"
+                    ><input
+                      type="radio"
+                      name="checks1"
+                      id="r3"
+                      formControlName="checks1"
+                      value="3"
+                    />
+                    JavaScript</label
+                  >
+                </li>
+                <li (click)="onClicked3()">
+                  <label for="r4"
+                    ><input
+                      type="radio"
+                      name="checks1"
+                      value="4"
+                      id="r4"
+                      formControlName="checks1"
+                    />
+                    TypeScript</label
+                  >
+                </li>
+                <li (click)="onClicked3()">
+                  <label for="r5"
+                    ><input
+                      type="radio"
+                      name="checks1"
+                      value="5"
+                      id="r5"
+                      formControlName="checks1"
+                    />
+                    React</label
+                  >
+                </li>
+                <!-- <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="6" /> Angular</li>
+                <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="7" /> Django</li>
+                <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="8" /> Php</li>
+                <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="9" /> Sql</li>
+                <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="10" /> Api</li> -->
               </ul>
             </div>
           </div>
           <div class="inputGroup select-box position-relative">
             <div class="select-option d-flex mt-2">
               <input
+                type="text"
                 readonly
                 name=""
                 placeholder="select"
-                id="soValue"
+                id="soValue2"
                 (click)="onClicked2()"
               />
             </div>
@@ -111,22 +168,78 @@
             >
             <div class="content" *ngIf="toggleoption2">
               <div class="search">
-                <input type="search" id="optionSearch" placeholder="Search" />
+                <input type="search" id="optionSearch2" placeholder="Search" />
               </div>
               <ul class="options">
-                <li>Html</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>TypeScript</li>
-                <li>React</li>
-                <li>Angular</li>
-                <li>Django</li>
-                <li>Php</li>
-                <li>Sql</li>
-                <li>Api</li>
+                <li (click)="onClicked3()">
+                  <label for="r1"
+                    ><input
+                      type="radio"
+                      name="checks1"
+                      formControlName="checks2"
+                      value="1"
+                      id="d1"
+                    />
+                    Html</label
+                  >
+                </li>
+                <li (click)="onClicked3()">
+                  <label for="r2"
+                    ><input
+                      type="radio"
+                      name="checks1"
+                      id="d2"
+                      formControlName="checks2"
+                      value="2"
+                    />
+                    CSS</label
+                  >
+                </li>
+                <li (click)="onClicked3()">
+                  <label for="r3"
+                    ><input
+                      type="radio"
+                      name="checks1"
+                      id="d3"
+                      formControlName="checks2"
+                      value="3"
+                    />
+                    JavaScript</label
+                  >
+                </li>
+                <li (click)="onClicked3()">
+                  <label for="r4"
+                    ><input
+                      type="radio"
+                      name="checks1"
+                      value="4"
+                      id="d4"
+                      formControlName="checks2"
+                    />
+                    TypeScript</label
+                  >
+                </li>
+                <li (click)="onClicked3()">
+                  <label for="r5"
+                    ><input
+                      type="radio"
+                      name="checks1"
+                      value="5"
+                      id="d5"
+                      formControlName="checks2"
+                    />
+                    React</label
+                  >
+                </li>
+                <!-- <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="6" /> Angular</li>
+                <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="7" /> Django</li>
+                <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="8" /> Php</li>
+                <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="9" /> Sql</li>
+                <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="10" /> Api</li> -->
               </ul>
             </div>
           </div>
+
           <div class="inputGroup">
             <input
               type="email"

@@ -7,7 +7,7 @@
     <div class="info1">Registration</div>
     <div class="info2">Enter your mobile number to register</div>
     <div class="forms">
-      <form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="inputForm">
         <div class="input-container">
           <div class="inputGroup">
             <label for="code"
@@ -60,6 +60,7 @@
           </button>
           <button
             type="submit"
+            (click)="registerApi()"
             class="btn btn2 bg-success text-white w-50"
             [disabled]="inputForm && inputForm.invalid"
           >

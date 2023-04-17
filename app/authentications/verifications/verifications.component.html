@@ -8,7 +8,7 @@
   <div class="formContainer">
     <div class="info1">Registration</div>
     <div class="forms">
-      <form [formGroup]="Verification" (ngSubmit)="onSubmit()">
+      <form [formGroup]="Verification">
         <div class="input-container">
           <div class="inputGroup">
             <input
@@ -55,7 +55,8 @@
           </button>
           <button
             type="submit"
-            [disabled]="verfcode && verfcode.invalid"
+            (click)="verifyApi()"
+            [disabled]="verfcode && !verfcode.valid"
             class="btn btn2 bg-success text-white w-50"
           >
             Verify Code

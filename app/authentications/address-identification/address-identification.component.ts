@@ -8,58 +8,66 @@ import { Router } from '@angular/router';
   styleUrls: ['./address-identification.component.css']
 })
 export class AddressIdentificationComponent implements OnInit {
-  addressForm:FormGroup
-  toggleoption=false
-  toggleoption2=false
-  constructor(private fb : FormBuilder,private router : Router) { }
+  addressForm: FormGroup
+  data1: "1";
+  toggleoption = false
+  toggleoption2 = false
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit() {
-    this.addressForm=this.fb.group({
-      street:['',Validators.required],
-      suite:['',Validators.required],
-      parish:['',Validators.required],
-      email:['',Validators.required,Validators.email],
-      idtype:['',Validators.required],
-      idnum:['',Validators.required],
-      expiration:['',Validators.required],
-      img1:['',Validators.required],
-      img2:['',Validators.required],
-      radio1:['2',Validators.required],
+    this.addressForm = this.fb.group({
+      street: ['', Validators.required],
+      suite: ['', Validators.required],
+      parish: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      idtype: ['', Validators.required],
+      idnum: ['', Validators.required],
+      expiration: ['', Validators.required],
+      img1: ['', Validators.required],
+      img2: ['', Validators.required],
+      radio1: ['2', Validators.required],
+      checks1: [''],
+      checks2: [''],
     })
   }
-  onClicked(){
-    this.toggleoption=!this.toggleoption;
-    this.toggleoption2=false;
-   }
-  onClicked2(){
-    this.toggleoption2=!this.toggleoption2;
-    this.toggleoption=false;
-   }
-   onSubmit(){
+  onClicked() {
+    this.toggleoption = !this.toggleoption;
+    this.toggleoption2 = false;
+  }
+  onClicked2() {
+    this.toggleoption2 = !this.toggleoption2;
+    this.toggleoption = false;
+  }
+  onClicked3() {
+    this.toggleoption = false;
+    this.toggleoption2 = false;
+
+  }
+  onSubmit() {
     console.table(this.addressForm.value);
     this.router.navigate(['/security']);
-   }
-   get street(){
+  }
+  get street() {
     return this.addressForm.get('street');
-   }
-   get suite(){
+  }
+  get suite() {
     return this.addressForm.get('suite');
-   }
-   get parish(){
+  }
+  get parish() {
     return this.addressForm.get('parish');
-   }
-   get email(){
+  }
+  get email() {
     return this.addressForm.get('email');
-   }
-   get idtype(){
+  }
+  get idtype() {
     return this.addressForm.get('idtype');
-   }
-   get idnum(){
+  }
+  get idnum() {
     return this.addressForm.get('idnum');
-   }
-   get expiration(){
+  }
+  get expiration() {
     return this.addressForm.get('expiration');
-   }
-  
+  }
+
 
 }

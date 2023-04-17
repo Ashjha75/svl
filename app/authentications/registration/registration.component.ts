@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
+import { CommonService } from '../../../services/commonService';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class RegistrationComponent implements OnInit {
   inputForm: FormGroup;
-  constructor(private fb: FormBuilder, private router: Router) { }
+  body = {};
+  constructor(private fb: FormBuilder, private router: Router, private commonService: CommonService) { }
 
 
 
@@ -17,15 +19,20 @@ export class RegistrationComponent implements OnInit {
       'select': ['', Validators.required],
       'phone': ['', Validators.required]
     })
-
   }
-  onSubmit() {
+  registerApi() {
+    this.body = {
+      'phone': this.inputForm.controls.select.value + this.inputForm.controls.phone.value
+    };
 
-    console.log(this.inputForm.value);
-    if (this.inputForm.valid) {
-      this.router.navigate(['/verifications'])
-    }
+    this.commonService.register(this.body).subscribe((res: any[]) => {
+      if (this.inputForm.valid) {
+        this.router.navigate(['/verifications'])
+      }
+    });
   }
+
+
   get select() {
     return this.inputForm.get('select');
   }
