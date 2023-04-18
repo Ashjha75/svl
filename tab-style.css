@@ -1,0 +1,44 @@
+@media (min-width: 768px) and (max-width: 991px){
+    .logo-nav {
+       padding: 25px 0 15px !important;
+    }
+    .page-title {
+        position: relative !important;
+    }
+    .form-btn-block.cancel-application-btn {
+        position: absolute !important;
+        right: 0 !important;
+        top: 0 !important;
+        margin: 0 !important;
+        padding-right: 35px !important;
+        z-index: 999 !important;
+    }
+    .connect-footer{
+        margin-top: 35px !important;
+    }
+    
+    .form-btn-block.cancel-application-btn a, .form-btn-block.cancel-application-btn a:hover {
+        background-color: transparent !important;
+        border-color: transparent !important;
+        text-decoration: underline !important;
+        color:lightgray !important;
+    }
+    .summary-im{
+        width: 10px !important;
+    }
+    .health {
+        text-align: center !important;
+    }
+    .finance {
+        text-align: center !important;
+    }
+    footer .footer-link-columns {
+        margin-bottom: 0;
+    }
+     /** Vinod Added for AB screen Create Account*/
+     .profile-text{
+        margin-bottom: 15px;
+        text-align: left !important ;
+    }
+}
+   

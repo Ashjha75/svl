@@ -7,7 +7,6 @@ import { environment } from '../environments/environment';
 @Injectable()
 export class CommonService extends BaseService {
 
-
 	public register(body): Observable<any> {
 		const headers = new HttpHeaders({
 			'Content-Type': 'application/json',
@@ -17,9 +16,9 @@ export class CommonService extends BaseService {
 		const url = '/api/register-mobile';
 		return this.regularPostRequest(url, body, headers);
 	}
-	public otpVerify(body): Observable<any> {
+	public otpVerify(body, accesmedium): Observable<any> {
 		const headers = new HttpHeaders({
-			'Access-Medium': ,
+			'Access-Medium': accesmedium,
 			'Platform-type': 'JM',
 			'Client-type': 'WEB'
 		})
@@ -27,8 +26,48 @@ export class CommonService extends BaseService {
 		return this.regularPostRequest(url, body, headers);
 
 	}
+	public SignUpPersonal(body, accesmedium): Observable<any> {
+		const headers = new HttpHeaders({
+			'Access-Medium': accesmedium,
+			'Platform-type': 'GY',
+			'Client-type': 'WEB'
+		})
+		const url = '/api/register-personal';
+		return this.regularPostRequest(url, body, headers);
 
+	}
 
+	public SignUpAddress(body, accesmedium): Observable<any> {
+		const headers = new HttpHeaders({
+			'Access-Medium': accesmedium,
+			'Platform-type': 'JM',
+			'Client-type': 'WEB'
+		})
+		const url = '/api/register-address';
+		return this.regularPostRequest(url, body, headers);
+
+	}
+
+	public SignUpSecurity(body, accesmedium): Observable<any> {
+		const headers = new HttpHeaders({
+			'Access-Medium': accesmedium,
+			'Platform-type': 'JM',
+			'Client-type': 'WEB'
+		})
+		const url = '/api/register-security';
+		return this.regularPostRequest(url, body, headers);
+
+	}
+	public review(accesmedium): Observable<any> {
+		const headers = new HttpHeaders({
+			'Access-Medium': accesmedium,
+			'Platform-type': 'JM',
+			'Client-type': 'WEB'
+		})
+		const url = '/api/activate-user';
+		return this.regularPostRequest(url, null, headers);
+
+	}
 	/* Generic HTTP requests */
 	regularPostRequest(url, formData, headers) {
 		return super.makePostRequest(url, formData, headers)

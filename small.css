@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+/* Normailize Styles */
+body {
+  background: #f9fafb !important;; 
+  /* font-size: 1rem;
+  color: #565655;  */
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  
+}
