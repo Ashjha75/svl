@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonService } from '../../../services/commonService';
 
 @Component({
   selector: 'app-review-registeration',
@@ -8,12 +9,16 @@ import { Router } from '@angular/router';
 })
 export class ReviewRegisterationComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router: Router, private _commonservice: CommonService) { }
 
   ngOnInit() {
   }
-  onClick(){
+  reviewApi() {
+    this._commonservice.review(localStorage.getItem("accesmedium")).subscribe((resp) => {
+      console.log(resp);
+    })
     this.router.navigate(['/']);
   }
+
 
 }

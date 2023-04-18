@@ -10,6 +10,8 @@ import { CommonService } from '../../../services/commonService';
 export class VerificationsComponent implements OnInit {
   Verification: FormGroup;
   body: {};
+
+  // accessMedium: string = 'internet';
   constructor(private fb: FormBuilder, private router: Router, private _commonService: CommonService) { }
 
   ngOnInit() {
@@ -18,13 +20,14 @@ export class VerificationsComponent implements OnInit {
       Refferal: ['']
     })
   }
+
   verifyApi() {
-    console.log("hell")
-    this._commonService.otpVerify({ 'p': 1234 }).subscribe((resp: any[]) => {
-      if (this.Verification.valid) {
+
+    this._commonService.otpVerify({ 'otp': this.Verification.controls.verfcode.value }, localStorage.getItem("accesmedium")).subscribe((resp: any[]) => {
+      if (this.Verification.controls.verfcode.valid) {
         this.router.navigate(['/terms']);
       }
-      console.log(resp)
+
     })
 
   }

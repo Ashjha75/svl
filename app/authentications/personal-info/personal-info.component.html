@@ -8,7 +8,7 @@
     <div class="info1">Personal Details</div>
 
     <div class="forms">
-      <form [formGroup]="personalInfo" (ngSubmit)="onSubmit()">
+      <form [formGroup]="personalInfo">
         <div class="faded">
           <label for="file-input">
             <img
@@ -127,7 +127,6 @@
                 name=""
                 placeholder="select"
                 id="soValue"
-                formControlName="cob"
                 (click)="onClicked()"
               />
             </div>
@@ -140,13 +139,13 @@
                 <input type="search" id="optionSearch" placeholder="Search" />
               </div>
               <ul class="options">
-                <li (click)="onClicked3()">
+                <li>
                   <label for="r1"
                     ><input
                       type="radio"
                       name="checks1"
                       formControlName="checks1"
-                      value="1"
+                      value="17"
                       id="r1"
                     />
                     Html</label
@@ -157,44 +156,43 @@
                     ><input
                       type="radio"
                       name="checks1"
-                      id="r2"
                       formControlName="checks1"
-                      value="2"
-                      (click)="onClicked3()"
+                      id="r2"
+                      value="27"
                     />
                     CSS</label
                   >
                 </li>
-                <li (click)="onClicked3()">
+                <li>
                   <label for="r3"
                     ><input
                       type="radio"
                       name="checks1"
                       id="r3"
                       formControlName="checks1"
-                      value="3"
+                      value="37"
                     />
                     JavaScript</label
                   >
                 </li>
-                <li (click)="onClicked3()">
+                <li>
                   <label for="r4"
                     ><input
                       type="radio"
                       name="checks1"
-                      value="4"
+                      value="47"
                       id="r4"
                       formControlName="checks1"
                     />
                     TypeScript</label
                   >
                 </li>
-                <li (click)="onClicked3()">
+                <li>
                   <label for="r5"
                     ><input
                       type="radio"
                       name="checks1"
-                      value="5"
+                      value="57"
                       id="r5"
                       formControlName="checks1"
                     />
@@ -209,18 +207,19 @@
               </ul>
             </div>
           </div>
+
           <div class="inputGroup select-box position-relative">
             <div class="select-option d-flex mt-2">
               <input
                 type="text"
                 readonly
-                name=""
+                name="select"
                 placeholder="select"
                 id="soValue2"
                 (click)="onClicked2()"
               />
             </div>
-            <label for="soValue"
+            <label for="soValue2"
               >Nationality <span class="asterick text-danger">*</span></label
             >
             <div class="content" *ngIf="toggleoption2">
@@ -228,11 +227,11 @@
                 <input type="search" id="optionSearch2" placeholder="Search" />
               </div>
               <ul class="options">
-                <li (click)="onClicked3()">
+                <li>
                   <label for="d1"
                     ><input
                       type="radio"
-                      name="checks1"
+                      name="checks2"
                       formControlName="checks2"
                       value="1"
                       id="d1"
@@ -240,11 +239,11 @@
                     Html</label
                   >
                 </li>
-                <li (click)="onClicked3()">
+                <li>
                   <label for="d2"
                     ><input
                       type="radio"
-                      name="checks1"
+                      name="checks2"
                       id="d2"
                       formControlName="checks2"
                       value="2"
@@ -252,11 +251,11 @@
                     CSS</label
                   >
                 </li>
-                <li (click)="onClicked3()">
+                <li>
                   <label for="d3"
                     ><input
                       type="radio"
-                      name="checks1"
+                      name="checks2"
                       id="d3"
                       formControlName="checks2"
                       value="3"
@@ -264,11 +263,11 @@
                     JavaScript</label
                   >
                 </li>
-                <li (click)="onClicked3()">
+                <li>
                   <label for="d4"
                     ><input
                       type="radio"
-                      name="checks1"
+                      name="checks2"
                       value="4"
                       id="d4"
                       formControlName="checks2"
@@ -276,11 +275,11 @@
                     TypeScript</label
                   >
                 </li>
-                <li (click)="onClicked3()">
+                <li>
                   <label for="d5"
                     ><input
                       type="radio"
-                      name="checks1"
+                      name="checks2"
                       value="5"
                       id="d5"
                       formControlName="checks2"
@@ -307,6 +306,7 @@
             type="submit"
             [disabled]="personalInfo && personalInfo.invalid"
             class="btn btn2 bg-success text-white w-100"
+            (click)="SignupApiCall()"
           >
             Save and continue
           </button>

@@ -56,7 +56,7 @@
           <button
             type="submit"
             (click)="verifyApi()"
-            [disabled]="verfcode && !verfcode.valid"
+            [disabled]="verfcode && verfcode.invalid"
             class="btn btn2 bg-success text-white w-50"
           >
             Verify Code

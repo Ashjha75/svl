@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommonService } from '../../../services/commonService';
 
 @Component({
   selector: 'app-address-identification',
@@ -9,10 +10,10 @@ import { Router } from '@angular/router';
 })
 export class AddressIdentificationComponent implements OnInit {
   addressForm: FormGroup
-  data1: "1";
   toggleoption = false
+  body: {}
   toggleoption2 = false
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private _commonService: CommonService) { }
 
   ngOnInit() {
     this.addressForm = this.fb.group({
@@ -30,6 +31,29 @@ export class AddressIdentificationComponent implements OnInit {
       checks2: [''],
     })
   }
+  AddressApi() {
+    this.body = {
+      'street': this.addressForm.controls.street.value,
+      'suite': this.addressForm.controls.suite.value,
+      'parish': this.addressForm.controls.parish.value,
+      'email': this.addressForm.controls.email.value,
+      'idtype': this.addressForm.controls.idtype.value,
+      'idnum': this.addressForm.controls.idnum.value,
+      'expiration': this.addressForm.controls.expiration.value,
+      'img1': this.addressForm.controls.img1.value,
+      'img2': this.addressForm.controls.img2.value,
+      'radio1': this.addressForm.controls.radio1.value,
+      'checks1': this.addressForm.controls.checks1.value,
+      'checks2': this.addressForm.controls.checks2.value,
+    }
+    this._commonService.SignUpAddress(this.body, localStorage.getItem("accesmedium")).subscribe((resp: any[]) => {
+      if (this.addressForm.valid) {
+        this.router.navigate(['/security']);
+      }
+      console.log(resp)
+
+    })
+  }
   onClicked() {
     this.toggleoption = !this.toggleoption;
     this.toggleoption2 = false;
@@ -43,10 +67,7 @@ export class AddressIdentificationComponent implements OnInit {
     this.toggleoption2 = false;
 
   }
-  onSubmit() {
-    console.table(this.addressForm.value);
-    this.router.navigate(['/security']);
-  }
+
   get street() {
     return this.addressForm.get('street');
   }
