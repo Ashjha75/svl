@@ -14,6 +14,8 @@ export abstract class BaseService {
     this._http = _http;
   }
 
+
+
   protected static createMessageDiv(html, type) {
     const div = document.createElement('div');
     html = html.trim(); // Never return a text node of whitespace as the result
@@ -188,6 +190,7 @@ export abstract class BaseService {
     const httpOptions = { headers: headers, withCredentials: false };
     return this._http.get(fullUrl, { headers: httpOptions.headers, observe: 'response', withCredentials: false });
   }
+
   protected makeGetRequestForFiles(url: string, headers: HttpHeaders) {
     let fullUrl = url;
     if (!url.startsWith('http')) {
