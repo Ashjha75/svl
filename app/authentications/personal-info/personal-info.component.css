@@ -30,8 +30,9 @@
   background: #fff;
   padding: 35px !important;
   border: 3px solid #269c2f;
-  margin-bottom: 6rem;
-  margin-top: 10px;
+  z-index: 10;
+  margin-bottom: 10vh !important;
+  margin-top: 0px !important;
   /* min-width: 450px; */
   width: 29vw;
 }
@@ -170,7 +171,6 @@ input::-webkit-inner-spin-button {
     background-repeat: repeat;
     background-position: left;
     width: 100%;
-    height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -182,6 +182,7 @@ input::-webkit-inner-spin-button {
     padding: 15px !important;
     border: 3px solid #269c2f;
     margin-top: 10px;
+    margin-bottom: 10vh !important;
     width: 55vw;
   }
   .out-container .imgc {
@@ -209,6 +210,7 @@ input::-webkit-inner-spin-button {
     border: 3px solid #269c2f;
     margin-top: 10px;
     width: 90vw;
+    margin-bottom: 10vh !important;
   }
 
   select {
@@ -256,7 +258,7 @@ input::-webkit-inner-spin-button {
 }
 .options {
   margin-top: 10px;
-  max-height: 250px;
+  max-height: 251px;
   overflow-y: auto;
   padding: 0;
 }
@@ -311,7 +313,7 @@ input::-webkit-inner-spin-button {
   align-items: center;
 }
 
-.options li input[type="radio"] {
+.options li input {
   height: 25px;
   width: 25px;
   order: 2;

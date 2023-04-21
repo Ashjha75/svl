@@ -9,14 +9,14 @@ import { SecurityDetailsComponent } from './security-details/security-details.co
 import { ReviewRegisterationComponent } from './review-registeration/review-registeration.component';
 
 const routes: Routes = [
-  {path:'',component:RegistrationComponent},
-  {path:'verifications', component: VerificationsComponent},
-  {path:'terms',component:TermsConditionsComponent},
-  {path:'personalinfo',component:PersonalInfoComponent},
-  {path :'address',component : AddressIdentificationComponent},
-  {path:'security',component:SecurityDetailsComponent},
-  {path:'review',component:ReviewRegisterationComponent},
-  {path:'**',component:RegistrationComponent}
+  { path: '', component: RegistrationComponent },
+  { path: 'verifications', component: VerificationsComponent },
+  { path: 'terms', component: TermsConditionsComponent },
+  { path: 'personalinfo', component: PersonalInfoComponent },
+  { path: 'address', component: AddressIdentificationComponent },
+  { path: 'security', component: SecurityDetailsComponent },
+  { path: 'review', component: ReviewRegisterationComponent },
+  { path: '**', component: RegistrationComponent }
 ];
 
 @NgModule({

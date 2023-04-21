@@ -5,11 +5,16 @@
       <img src="./assets/images/register/signup-3.png" />
     </div>
   </div>
+  <app-popup-message
+    *ngIf="display"
+    [error]="errorMessage"
+    [display]="display"
+  ></app-popup-message>
   <div class="formContainer">
     <div class="info1">Security Details</div>
 
     <div class="forms">
-      <form [formGroup]="securityForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="securityForm">
         <div class="input-container">
           <div class="inputGroup">
             <select
@@ -20,72 +25,11 @@
               }"
             >
               <option value disabled selected>Select</option>
-              <option value="What is your favourite book?">
-                What is your favourite book?
-              </option>
-              <option value="What is the name of the road you grew up on?">
-                What is the name of the road you grew up on?
-              </option>
-              <option value="What is your mothers maiden name?">
-                What is your mothers maiden name?
-              </option>
               <option
-                value="What was the name of your first/current/favourite pet?"
+                *ngFor="let item of securityQuestions; let i = index"
+                value="{{ securityQuestions[i].id }}"
               >
-                What was the name of your first/current/favourite pet?
-              </option>
-              <option value="What was the first company that you worked for?">
-                What was the first company that you worked for?
-              </option>
-              <option value="Where did you meet your spouse?">
-                Where did you meet your spouse?
-              </option>
-              <option value="Where did you go to high school/college?">
-                Where did you go to high school/college?
-              </option>
-              <option value="What is your favourite food?">
-                What is your favourite food?
-              </option>
-              <option value="What city were you born in?">
-                What city were you born in?
-              </option>
-              <option value="Where is your favourite place to vacation?">
-                Where is your favourite place to vacation?
-              </option>
-              <option
-                value="What was the name of your elementary/primary school?"
-              >
-                What was the name of your elementary/primary school?
-              </option>
-              <option
-                value="What was your favourite place to visit as a child?"
-              >
-                What was your favourite place to visit as a child?
-              </option>
-              <option
-                value="What is the name of your favourite childhood teacher?"
-              >
-                What is the name of your favourite childhood teacher?
-              </option>
-              <option value="To what city did you go on your honeymoon?">
-                To what city did you go on your honeymoon?
-              </option>
-              <option value="What time of the day were you born?">
-                What time of the day were you born?
-              </option>
-              <option value="What was your dream job as a child?">
-                What was your dream job as a child?
-              </option>
-              <option
-                value="What is the street number of the house you grew up in?"
-              >
-                What is the street number of the house you grew up in?
-              </option>
-              <option value=" What was the first concert you attended?">
-                What was the first concert you attended?
-              </option>
-              <option value="What is vour grandmother's first name?">
-                What is vour grandmother's first name?
+                {{ securityQuestions[i].name }}
               </option>
             </select>
             <label for="code"
@@ -124,72 +68,11 @@
               }"
             >
               <option value disabled selected>Select</option>
-              <option value="What is your favourite book?">
-                What is your favourite book?
-              </option>
-              <option value="What is the name of the road you grew up on?">
-                What is the name of the road you grew up on?
-              </option>
-              <option value="What is your mothers maiden name?">
-                What is your mothers maiden name?
-              </option>
               <option
-                value="What was the name of your first/current/favourite pet?"
+                *ngFor="let item of securityQuestions; let i = index"
+                value="{{ securityQuestions[i].id }}"
               >
-                What was the name of your first/current/favourite pet?
-              </option>
-              <option value="What was the first company that you worked for?">
-                What was the first company that you worked for?
-              </option>
-              <option value="Where did you meet your spouse?">
-                Where did you meet your spouse?
-              </option>
-              <option value="Where did you go to high school/college?">
-                Where did you go to high school/college?
-              </option>
-              <option value="What is your favourite food?">
-                What is your favourite food?
-              </option>
-              <option value="What city were you born in?">
-                What city were you born in?
-              </option>
-              <option value="Where is your favourite place to vacation?">
-                Where is your favourite place to vacation?
-              </option>
-              <option
-                value="What was the name of your elementary/primary school?"
-              >
-                What was the name of your elementary/primary school?
-              </option>
-              <option
-                value="What was your favourite place to visit as a child?"
-              >
-                What was your favourite place to visit as a child?
-              </option>
-              <option
-                value="What is the name of your favourite childhood teacher?"
-              >
-                What is the name of your favourite childhood teacher?
-              </option>
-              <option value="To what city did you go on your honeymoon?">
-                To what city did you go on your honeymoon?
-              </option>
-              <option value="What time of the day were you born?">
-                What time of the day were you born?
-              </option>
-              <option value="What was your dream job as a child?">
-                What was your dream job as a child?
-              </option>
-              <option
-                value="What is the street number of the house you grew up in?"
-              >
-                What is the street number of the house you grew up in?
-              </option>
-              <option value=" What was the first concert you attended?">
-                What was the first concert you attended?
-              </option>
-              <option value="What is vour grandmother's first name?">
-                What is vour grandmother's first name?
+                {{ securityQuestions[i].name }}
               </option>
             </select>
             <label for="code"

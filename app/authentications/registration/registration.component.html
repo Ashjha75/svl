@@ -20,8 +20,13 @@
               formControlName="select"
             >
               <option value disabled selected>Select</option>
-              <option value="1">+1(JM)</option>
-              <option value="91">+91(IN)</option>
+              <option
+                *ngFor="let item of countryPhoneCode; let i = index"
+                value="{{ countryPhoneCode[i].name }}"
+                id="{{ countryPhoneCode[i].id }}"
+              >
+                +{{ countryPhoneCode[i].name }}({{ countryPhoneCode[i].id }})
+              </option>
             </select>
             <div
               class="warn"

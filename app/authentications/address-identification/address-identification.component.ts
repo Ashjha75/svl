@@ -1,18 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonService } from '../../../services/commonService';
-
+import { counties } from '../../../assets/locationsData.json'
 @Component({
   selector: 'app-address-identification',
   templateUrl: './address-identification.component.html',
   styleUrls: ['./address-identification.component.css']
 })
 export class AddressIdentificationComponent implements OnInit {
+  @Output() error;
+  @Output() display;
+  errorMessage = ""
   addressForm: FormGroup
   toggleoption = false
   body: {}
   toggleoption2 = false
+  countries: {}
+  parishs: {}
+  idType: {}
   constructor(private fb: FormBuilder, private router: Router, private _commonService: CommonService) { }
 
   ngOnInit() {
@@ -30,6 +36,14 @@ export class AddressIdentificationComponent implements OnInit {
       checks1: [''],
       checks2: [''],
     })
+    this.countries = this._commonService.lookup;
+    this.parishs = Object.entries(counties);
+    for (let i = 0; i < 3; i++) {
+      console.log(Object.entries(this.parishs)[i][1])
+
+    }
+
+    this.idType = this._commonService.idType;
   }
   AddressApi() {
     this.body = {
@@ -46,12 +60,15 @@ export class AddressIdentificationComponent implements OnInit {
       'checks1': this.addressForm.controls.checks1.value,
       'checks2': this.addressForm.controls.checks2.value,
     }
-    this._commonService.SignUpAddress(this.body, localStorage.getItem("accesmedium")).subscribe((resp: any[]) => {
+    this._commonService.SignUpAddress(this.body, localStorage.getItem("accessmedium")).subscribe((resp) => {
       if (this.addressForm.valid) {
-        this.router.navigate(['/security']);
+        if (resp.body.message.errorMessage == "") {
+          this.router.navigate(['/security']);
+        } else {
+          this.display = !this.display;
+          this.errorMessage = resp.body.message.errorMessage;
+        }
       }
-      console.log(resp)
-
     })
   }
   onClicked() {

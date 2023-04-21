@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonService } from '../../../services/commonService';
@@ -9,9 +9,13 @@ import { CommonService } from '../../../services/commonService';
   styleUrls: ['./security-details.component.css']
 })
 export class SecurityDetailsComponent implements OnInit {
+  @Output() error;
+  @Output() display;
+  errorMessage = ""
   hide = true;
   hide2 = true;
   body: {}
+  securityQuestions: {}
   securityForm: FormGroup
 
   constructor(private fb: FormBuilder, private router: Router, private _commonService: CommonService) { }
@@ -29,21 +33,28 @@ export class SecurityDetailsComponent implements OnInit {
       flexRadioDefault2: ['No', Validators.required],
       flexRadioDefault3: ['No', Validators.required],
     })
+    this.securityQuestions = this._commonService.securityQuestions;
   }
   SecurityApi() {
     this.body = {
-      "ques1": this.securityForm.controls.ques1.value,
-      "ans1": this.securityForm.controls.ans1.value,
-      "ques2": this.securityForm.controls.ques2.value,
-      "ans2": this.securityForm.controls.ans2.value,
       "pass1": this.securityForm.controls.pass1.value,
-      "pass2": this.securityForm.controls.pass2.value,
-      "flexRadioDefault": this.securityForm.controls.flexRadioDefault.value,
-      "flexRadioDefault2": this.securityForm.controls.flexRadioDefault2.value,
-      "flexRadioDefault3": this.securityForm.controls.flexRadioDefault3.value,
+      "questList": [{
+        "ques1": this.securityForm.controls.ques1.value,
+        "ans1": this.securityForm.controls.ans1.value
+      },
+      { "ques2": this.securityForm.controls.ques2.value, "ans2": this.securityForm.controls.ans2.value },
+      { "ques3": this.securityForm.controls.ques2.value, "ans3": this.securityForm.controls.ans2.value },
+      ]
+
     }
-    this._commonService.SignUpSecurity(this.body, localStorage.getItem("accesmedium")).subscribe((res) => {
-      console.log(res)
+    this._commonService.SignUpSecurity(this.body, localStorage.getItem("accessmedium")).subscribe((res) => {
+      if (res.body.message.errorMessage == "") {
+        this.router.navigate(['/review']);
+      }
+      else {
+        this.display = !this.display;
+        this.errorMessage = res.body.message.errorMessage;
+      }
     })
   }
 
@@ -54,10 +65,7 @@ export class SecurityDetailsComponent implements OnInit {
   togglePassword2(): void {
     this.hide2 = !this.hide2;
   }
-  onSubmit() {
-    console.table(this.securityForm.value);
-    this.router.navigate(['/review']);
-  }
+
   get ques1() {
     return this.securityForm.get('ques1');
   }

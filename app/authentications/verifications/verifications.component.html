@@ -1,4 +1,9 @@
 <div class="registeration">
+  <app-popup-message
+    *ngIf="display"
+    [error]="errorMessage"
+    [display]="display"
+  ></app-popup-message>
   <div class="out-container">
     <div>Registration</div>
     <div class="imgc">
@@ -43,16 +48,24 @@
               formControlName="Refferal"
             />
             <label for="referal">Refferal Code</label>
-            <button class="btn clear" type="reset">Clear</button>
+            <button class="btn clear" type="reset" for="myReferal">
+              Clear
+            </button>
           </div>
         </div>
         <div class="verify">Verification code successfully sent.</div>
         <div
+          *ngIf="timeRemaining == 0"
           class="btnContainer d-flex justify-content-between align-items-center w-100"
         >
-          <button type="button" class="btn btn1 text-white w-50">
+          <button
+            type="button"
+            (click)="ResendApi()"
+            class="btn btn1 text-white w-50"
+          >
             Resend Code
           </button>
+
           <button
             type="submit"
             (click)="verifyApi()"
@@ -61,6 +74,23 @@
           >
             Verify Code
           </button>
+        </div>
+        <div class="w-100 my-1" *ngIf="timeRemaining != 0">
+          <button
+            type="submit"
+            (click)="verifyApi()"
+            [disabled]="verfcode && verfcode.invalid"
+            class="btn w-100 btn3 bg-success text-white w-50"
+          >
+            Verify Code
+          </button>
+        </div>
+        <div
+          *ngIf="timeRemaining != 0"
+          class="timer d-flex justify-content-center mb-2"
+        >
+          You can request verification code again in
+          {{ timeRemaining }} seconds.
         </div>
         <button
           type="button"

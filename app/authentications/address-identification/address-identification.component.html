@@ -5,6 +5,11 @@
       <img src="./assets/images/register/signup-1.png" />
     </div>
   </div>
+  <app-popup-message
+    *ngIf="display"
+    [error]="errorMessage"
+    [display]="display"
+  ></app-popup-message>
   <div class="formContainer">
     <div class="info1">Permanent Address and Identification</div>
 
@@ -51,8 +56,9 @@
               }"
             >
               <option value disabled selected>Select</option>
-              <option value="option1">option1</option>
-              <option value="option2">option2</option>
+              <option *ngFor="let parish of Object.keys(parishs)">
+                {{ parish }}
+              </option>
             </select>
             <label for="code"
               >Parish <span class="asterick text-danger">*</span></label
@@ -84,71 +90,18 @@
                 <input type="search" id="optionSearch" placeholder="Search" />
               </div>
               <ul class="options">
-                <li>
-                  <label for="r1"
+                <li *ngFor="let item of counteries; let i = index">
+                  <label for="{{ counteries[i].id }}"
                     ><input
                       type="radio"
                       name="checks1"
                       formControlName="checks1"
-                      value="1"
-                      id="r1"
+                      value="{{ counteries[i].name }}"
+                      id="{{ counteries[i].id }}"
                     />
-                    Html</label
+                    {{ counteries[i].name }}</label
                   >
                 </li>
-                <li>
-                  <label for="r2"
-                    ><input
-                      type="radio"
-                      name="checks1"
-                      id="r2"
-                      formControlName="checks1"
-                      value="2"
-                    />
-                    CSS</label
-                  >
-                </li>
-                <li>
-                  <label for="r3"
-                    ><input
-                      type="radio"
-                      name="checks1"
-                      id="r3"
-                      formControlName="checks1"
-                      value="3"
-                    />
-                    JavaScript</label
-                  >
-                </li>
-                <li>
-                  <label for="r4"
-                    ><input
-                      type="radio"
-                      name="checks1"
-                      value="4"
-                      id="r4"
-                      formControlName="checks1"
-                    />
-                    TypeScript</label
-                  >
-                </li>
-                <li>
-                  <label for="r5"
-                    ><input
-                      type="radio"
-                      name="checks1"
-                      value="5"
-                      id="r5"
-                      formControlName="checks1"
-                    />
-                    React</label
-                  >
-                </li>
-                <!-- <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="6" /> Angular</li>
-                <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="7" /> Django</li>
-                <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="8" /> Php</li>
-                <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="9" /> Sql</li>
-                <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="10" /> Api</li> -->
               </ul>
             </div>
           </div>
@@ -171,71 +124,18 @@
                 <input type="search" id="optionSearch2" placeholder="Search" />
               </div>
               <ul class="options">
-                <li>
-                  <label for="d1"
+                <li *ngFor="let item of counteries; let i = index">
+                  <label for="{{ counteries[i].id }}"
                     ><input
                       type="radio"
                       name="checks2"
                       formControlName="checks2"
-                      value="1"
-                      id="d1"
+                      value="{{ counteries[i].name }}"
+                      id="{{ counteries[i].id }}"
                     />
-                    Html</label
+                    {{ counteries[i].name }}</label
                   >
                 </li>
-                <li>
-                  <label for="d2"
-                    ><input
-                      type="radio"
-                      name="checks2"
-                      id="d2"
-                      formControlName="checks2"
-                      value="2"
-                    />
-                    CSS</label
-                  >
-                </li>
-                <li>
-                  <label for="d3"
-                    ><input
-                      type="radio"
-                      name="checks2"
-                      id="d3"
-                      formControlName="checks2"
-                      value="3"
-                    />
-                    JavaScript</label
-                  >
-                </li>
-                <li>
-                  <label for="d4"
-                    ><input
-                      type="radio"
-                      name="checks2"
-                      value="4"
-                      id="d4"
-                      formControlName="checks2"
-                    />
-                    TypeScript</label
-                  >
-                </li>
-                <li>
-                  <label for="d5"
-                    ><input
-                      type="radio"
-                      name="checks2"
-                      value="5"
-                      id="d5"
-                      formControlName="checks2"
-                    />
-                    React</label
-                  >
-                </li>
-                <!-- <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="6" /> Angular</li>
-                <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="7" /> Django</li>
-                <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="8" /> Php</li>
-                <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="9" /> Sql</li>
-                <li><input type="radio" name="checks1" formControlName="checks1"  class="form-check-input" value="10" /> Api</li> -->
               </ul>
             </div>
           </div>
@@ -269,8 +169,12 @@
               }"
             >
               <option value disabled selected>Select</option>
-              <option value="option1">option1</option>
-              <option value="option2">option2</option>
+              <option
+                *ngFor="let item of idType; let i = index"
+                value="{{ idType[i].id }}"
+              >
+                {{ idType[i].name }}
+              </option>
             </select>
             <label for="mobile"
               >ID Type <span class="asterick text-danger">*</span></label

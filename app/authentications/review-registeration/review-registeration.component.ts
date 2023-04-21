@@ -14,10 +14,11 @@ export class ReviewRegisterationComponent implements OnInit {
   ngOnInit() {
   }
   reviewApi() {
-    this._commonservice.review(localStorage.getItem("accesmedium")).subscribe((resp) => {
-      console.log(resp);
+    this._commonservice.review(localStorage.getItem("accessmedium")).subscribe((resp) => {
+      if (resp.body.message.errorMessage == "")
+        this.router.navigate(['/']);
+
     })
-    this.router.navigate(['/']);
   }
 
 

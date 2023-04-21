@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 import { CommonService } from '../../../services/commonService';
-import { HttpResponse } from '@angular/common/http';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -11,7 +10,7 @@ import { HttpResponse } from '@angular/common/http';
 export class RegistrationComponent implements OnInit {
   inputForm: FormGroup;
   body = {};
-  headers;
+  countryPhoneCode;
   constructor(private fb: FormBuilder, private router: Router, private commonService: CommonService) { }
 
 
@@ -21,22 +20,32 @@ export class RegistrationComponent implements OnInit {
       'select': ['', Validators.required],
       'phone': ['', Validators.required]
     })
+    this.commonService.lookUps({
+      "lookups": ["countries", "gender", "parish", "idType", "securityQuestions", "phoneNumberCodes"]
+    }).subscribe((res) => {
+      this.commonService.lookup = res.body.countries;
+      this.countryPhoneCode = res.body.phoneNumberCodes;
+      this.commonService.gender = res.body.gender;
+      this.commonService.parish = res.body.parish;
+      this.commonService.idType = res.body.idType;
+      this.commonService.securityQuestions = res.body.securityQuestions;
+    })
   }
+
+
   registerApi() {
     this.body = {
       'phone': this.inputForm.controls.select.value + this.inputForm.controls.phone.value
     };
-    localStorage.setItem('accesmedium', "eyJpdiI6Iko2Rmp2VkwwcVJaZUN1RmtIYnlUTmc9PSIsInZhbHVlIjoiTVl4ZlV2QVg3SDJ4VENWL1NJanVHaEJPbXQ4MVo4RE9UY2ZuZi9pcmNjVWVVRlNwMjJTU041M2ZzeU5rMEh0MFpydDluOGt0bTJNaDhYaHVxZ0hwQ0NiQjBLOHZ6ZXFyUHgzNWhyckVSZG1WMm5waFZac0k4WWtPNVR4TUdxN0RRVlZGYzd0TlJSeEh0YWN6TjZmM2lSTThKRTE2Qmh3aEFZc095K2hHQy9KVWxJY0hhTjlpTzJmZUtNRmxQSVgydm9JWGFuMFgrUXMvY1QyNnJNaUNEWU9WWGR1STh5MXhkcGpYMEYxMjM3bFBZMmNqOW5ySWRxeE4rc0h4OXNrRGVNSHdsQUs2NEtHMkRVV2lKako4ckluT2RMTmV2aHpQZGN3WXJSRVhkOEk9IiwibWFjIjoiYWY1ZmJiZDdlYzUzNzg5NDZiZjkwMTU3M2U1NzRmMWY4NDQ0ZjFiNTc4YWFmMjQ1MTIyNjJhNTliYjBjMzBjZCJ9");
 
-    this.commonService.register(this.body).subscribe((res: HttpResponse<any>) => {
+    this.commonService.register(this.body).subscribe((res) => {
       if (this.inputForm.valid) {
-        this.router.navigate(['/verifications'])
+        if (res.body.message.errorMessage == "")
+          this.router.navigate(['/verifications'])
       }
+      const data = res.headers.get('access-medium');
+      localStorage.setItem("accessmedium", data)
 
-      console.log(res.headers);
-      return res;
-      // debugger
-      // localStorage.setItem('accesmedium', "eyJpdiI6Iko2Rmp2VkwwcVJaZUN1RmtIYnlUTmc9PSIsInZhbHVlIjoiTVl4ZlV2QVg3SDJ4VENWL1NJanVHaEJPbXQ4MVo4RE9UY2ZuZi9pcmNjVWVVRlNwMjJTU041M2ZzeU5rMEh0MFpydDluOGt0bTJNaDhYaHVxZ0hwQ0NiQjBLOHZ6ZXFyUHgzNWhyckVSZG1WMm5waFZac0k4WWtPNVR4TUdxN0RRVlZGYzd0TlJSeEh0YWN6TjZmM2lSTThKRTE2Qmh3aEFZc095K2hHQy9KVWxJY0hhTjlpTzJmZUtNRmxQSVgydm9JWGFuMFgrUXMvY1QyNnJNaUNEWU9WWGR1STh5MXhkcGpYMEYxMjM3bFBZMmNqOW5ySWRxeE4rc0h4OXNrRGVNSHdsQUs2NEtHMkRVV2lKako4ckluT2RMTmV2aHpQZGN3WXJSRVhkOEk9IiwibWFjIjoiYWY1ZmJiZDdlYzUzNzg5NDZiZjkwMTU3M2U1NzRmMWY4NDQ0ZjFiNTc4YWFmMjQ1MTIyNjJhNTliYjBjMzBjZCJ9");
     });
 
   }

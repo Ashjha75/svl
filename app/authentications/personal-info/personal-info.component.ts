@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonService } from '../../../services/commonService';
@@ -8,12 +8,16 @@ import { CommonService } from '../../../services/commonService';
   styleUrls: ['./personal-info.component.css']
 })
 export class PersonalInfoComponent implements OnInit {
-
+  @Output() error;
+  @Output() display;
   personalInfo: FormGroup;
   val = '';
   toggleoption = false;
   toggleoption2 = false;
   body: {}
+  countries: {}
+  genders: {}
+  errorMessage: string;
   constructor(private fb: FormBuilder, private router: Router, private _commonservice: CommonService) { }
 
   ngOnInit() {
@@ -24,10 +28,11 @@ export class PersonalInfoComponent implements OnInit {
       lname: ['', Validators.required],
       date: ['', Validators.required],
       gender: ['', Validators.required],
-      checks1: ['2'],
-      checks2: ['1']
+      checks1: [''],
+      checks2: ['']
     })
-
+    this.countries = this._commonservice.lookup;
+    this.genders = this._commonservice.gender;
   }
 
 
@@ -56,10 +61,15 @@ export class PersonalInfoComponent implements OnInit {
       'checks2': this.personalInfo.controls.checks2.value,
 
     }
-    console.table(this.body)
-    this.router.navigate(['/address']);
+
     this._commonservice.SignUpPersonal(this.body, (localStorage.getItem("accessmedium"))).subscribe((resp) => {
-      console.log(resp)
+      if (resp.body.message.errorMessage == "") {
+        this.router.navigate(['/address']);
+      }
+      else {
+        this.display = !this.display;
+        this.errorMessage = resp.body.message.errorMessage;
+      }
     })
 
 

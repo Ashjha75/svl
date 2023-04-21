@@ -1,0 +1,19 @@
+<div class="body" (click)="onClick()" *ngIf="display">
+  <div class="card scale-up-center">
+    <div class="header">
+      <div class="content">
+        <span class="title">
+          <span class="text-warning"
+            ><i class="fa fa-exclamation-circle"></i
+          ></span>
+          {{ error }}</span
+        >
+      </div>
+      <div class="actions">
+        <button class="desactivate btn" type="button" (click)="onClick()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

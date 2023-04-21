@@ -9,8 +9,9 @@ import { AddressIdentificationComponent } from './address-identification/address
 import { SecurityDetailsComponent } from './security-details/security-details.component';
 import { ReviewRegisterationComponent } from './review-registeration/review-registeration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PopupMessageComponent } from './popup-message/popup-message.component';
 @NgModule({
-  declarations: [RegistrationComponent,VerificationsComponent, TermsConditionsComponent, PersonalInfoComponent, AddressIdentificationComponent, SecurityDetailsComponent, ReviewRegisterationComponent],
+  declarations: [RegistrationComponent,VerificationsComponent, TermsConditionsComponent, PersonalInfoComponent, AddressIdentificationComponent, SecurityDetailsComponent, ReviewRegisterationComponent, PopupMessageComponent],
   imports: [
     CommonModule,
     FormsModule,
