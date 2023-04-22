@@ -18,6 +18,8 @@ export class PersonalInfoComponent implements OnInit {
   countries: {}
   genders: {}
   errorMessage: string;
+  Radioparent = document.querySelector(".Radioparent") as HTMLInputElement;
+  RadioCheck = document.querySelector(".RadioCheck") as HTMLInputElement;
   constructor(private fb: FormBuilder, private router: Router, private _commonservice: CommonService) { }
 
   ngOnInit() {
@@ -44,11 +46,12 @@ export class PersonalInfoComponent implements OnInit {
     this.toggleoption2 = !this.toggleoption2;
     this.toggleoption = false;
   }
-  // onClicked3() {
-  //   this.toggleoption = false;
-  //   this.toggleoption2 = false;
+  onClicked3() {
+    if (this.RadioCheck.checked) {
+      this.Radioparent.style.height = "0";
+    }
+  }
 
-  // }
   SignupApiCall() {
     this.body = {
       'img': this.personalInfo.controls.image.value,

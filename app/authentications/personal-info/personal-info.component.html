@@ -148,7 +148,7 @@
               <div class="search">
                 <input type="search" id="optionSearch" placeholder="Search" />
               </div>
-              <ul class="options">
+              <ul class="options Radioparent">
                 <li *ngFor="let item of countries; let i = index">
                   <label for="{{ countries[i].id }}"
                     ><input
@@ -157,6 +157,8 @@
                       formControlName="checks1"
                       value="{{ countries[i].name }}"
                       id="{{ countries[i].id }}"
+                      class="RadioCheck"
+                      (click)="onClicked3()"
                     />
                     {{ countries[i].name }}</label
                   >

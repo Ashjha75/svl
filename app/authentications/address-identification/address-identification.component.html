@@ -54,9 +54,13 @@
               [ngClass]="{
                 'invalid-input': parish && parish.invalid && parish.touched
               }"
+              (change)="onSelect($event.target.value)"
             >
               <option value disabled selected>Select</option>
-              <option *ngFor="let parish of Object.keys(parishs)">
+              <option
+                *ngFor="let parish of parishNames; let i = index"
+                id="{{ parish }}"
+              >
                 {{ parish }}
               </option>
             </select>
@@ -71,72 +75,52 @@
               this field to continue
             </div>
           </div>
-          <div class="inputGroup select-box position-relative">
-            <div class="select-option d-flex mt-2">
-              <input
-                type="text"
-                readonly
-                name=""
-                placeholder="select"
-                id="soValue"
-                (click)="onClicked()"
-              />
-            </div>
-            <label for="soValue"
-              >Town <span class="asterick text-danger">*</span></label
+          <div class="inputGroup">
+            <select
+              name="code"
+              formControlName="town"
+              [ngClass]="{
+                'invalid-input': towns && towns.invalid && towns.touched
+              }"
+              (change)="onSelect2($event.target.value)"
             >
-            <div class="content" *ngIf="toggleoption">
-              <div class="search">
-                <input type="search" id="optionSearch" placeholder="Search" />
-              </div>
-              <ul class="options">
-                <li *ngFor="let item of counteries; let i = index">
-                  <label for="{{ counteries[i].id }}"
-                    ><input
-                      type="radio"
-                      name="checks1"
-                      formControlName="checks1"
-                      value="{{ counteries[i].name }}"
-                      id="{{ counteries[i].id }}"
-                    />
-                    {{ counteries[i].name }}</label
-                  >
-                </li>
-              </ul>
+              <option value disabled selected>Select</option>
+              <option *ngFor="let town of townName" id="{{ town }}">
+                {{ town }}
+              </option>
+            </select>
+            <label for="code"
+              >Town<span class="asterick text-danger">*</span></label
+            >
+            <div class="warn" *ngIf="towns && towns.invalid && towns.touched">
+              <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
+              this field to continue
             </div>
           </div>
-          <div class="inputGroup select-box position-relative">
-            <div class="select-option d-flex mt-2">
-              <input
-                type="text"
-                readonly
-                name=""
-                placeholder="select"
-                id="soValue2"
-                (click)="onClicked2()"
-              />
-            </div>
-            <label for="soValue2"
-              >District <span class="asterick text-danger">*</span></label
+
+          <div class="inputGroup">
+            <select
+              name="code"
+              formControlName="district"
+              [ngClass]="{
+                'invalid-input':
+                  district && district.invalid && district.touched
+              }"
             >
-            <div class="content" *ngIf="toggleoption2">
-              <div class="search">
-                <input type="search" id="optionSearch2" placeholder="Search" />
-              </div>
-              <ul class="options">
-                <li *ngFor="let item of counteries; let i = index">
-                  <label for="{{ counteries[i].id }}"
-                    ><input
-                      type="radio"
-                      name="checks2"
-                      formControlName="checks2"
-                      value="{{ counteries[i].name }}"
-                      id="{{ counteries[i].id }}"
-                    />
-                    {{ counteries[i].name }}</label
-                  >
-                </li>
-              </ul>
+              <option value disabled selected>Select</option>
+              <option *ngFor="let district of districtName" id="{{ district }}">
+                {{ district }}
+              </option>
+            </select>
+            <label for="code"
+              >Districts <span class="asterick text-danger">*</span></label
+            >
+            <div
+              class="warn"
+              *ngIf="district && district.invalid && district.touched"
+            >
+              <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
+              this field to continue
             </div>
           </div>
 

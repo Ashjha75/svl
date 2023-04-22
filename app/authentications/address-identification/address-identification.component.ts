@@ -18,7 +18,15 @@ export class AddressIdentificationComponent implements OnInit {
   toggleoption2 = false
   countries: {}
   parishs: {}
+  parishs2: {}
+  parishs3: {}
   idType: {}
+  parishNames = []
+  town = []
+  townName = []
+  districtName = []
+  set: string;
+  set2: string;
   constructor(private fb: FormBuilder, private router: Router, private _commonService: CommonService) { }
 
   ngOnInit() {
@@ -26,6 +34,8 @@ export class AddressIdentificationComponent implements OnInit {
       street: ['', Validators.required],
       suite: ['', Validators.required],
       parish: ['', Validators.required],
+      town: ['', Validators.required],
+      district: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       idtype: ['', Validators.required],
       idnum: ['', Validators.required],
@@ -37,19 +47,54 @@ export class AddressIdentificationComponent implements OnInit {
       checks2: [''],
     })
     this.countries = this._commonService.lookup;
-    this.parishs = Object.entries(counties);
-    for (let i = 0; i < 3; i++) {
-      console.log(Object.entries(this.parishs)[i][1])
+    Object.keys(counties).forEach(key => {
+      Object.keys(counties[key].parish).forEach(key2 => {
+        this.parishNames.push((counties[key].parish[key2].name));
+      })
+    })
 
-    }
 
-    this.idType = this._commonService.idType;
   }
+
+  onSelect(selectedValue: string) {
+    this.set = (event.target as HTMLSelectElement).selectedOptions[0].id;
+    Object.keys(counties).forEach(key => {
+      Object.keys(counties[key].parish).forEach(key2 => {
+
+        if ((counties[key].parish[key2].name) == this.set) {
+          Object.keys((counties[key].parish[key2].towns)).forEach(key3 => {
+            this.townName.push(counties[key].parish[key2].towns[key3].name)
+          });
+        }
+
+      })
+    })
+  }
+  onSelect2(selectedValue: string) {
+    this.set2 = (event.target as HTMLSelectElement).selectedOptions[0].id;
+    Object.keys(counties).forEach(key => {
+      Object.keys(counties[key].parish).forEach(key2 => {
+
+        Object.keys((counties[key].parish[key2].towns)).forEach(key3 => {
+          Object.keys(counties[key].parish[key2].towns[key3].districts).forEach(key4 => {
+            if ((counties[key].parish[key2].towns[key3].name) == this.set2)
+              this.districtName.push(counties[key].parish[key2].towns[key3].districts[key4].name);
+
+          })
+        });
+
+
+      })
+    })
+  }
+
   AddressApi() {
     this.body = {
       'street': this.addressForm.controls.street.value,
       'suite': this.addressForm.controls.suite.value,
       'parish': this.addressForm.controls.parish.value,
+      'town': this.addressForm.controls.town.value,
+      'district': this.addressForm.controls.district.value,
       'email': this.addressForm.controls.email.value,
       'idtype': this.addressForm.controls.idtype.value,
       'idnum': this.addressForm.controls.idnum.value,
@@ -93,6 +138,12 @@ export class AddressIdentificationComponent implements OnInit {
   }
   get parish() {
     return this.addressForm.get('parish');
+  }
+  get towns() {
+    return this.addressForm.get('town');
+  }
+  get district() {
+    return this.addressForm.get('district');
   }
   get email() {
     return this.addressForm.get('email');
