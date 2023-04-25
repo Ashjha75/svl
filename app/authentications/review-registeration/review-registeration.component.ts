@@ -8,10 +8,45 @@ import { CommonService } from '../../../services/commonService';
   styleUrls: ['./review-registeration.component.css']
 })
 export class ReviewRegisterationComponent implements OnInit {
-
+  securityDetails = [];
+  personalinfo = this._commonservice.personalInfo;
+  addressInfo = this._commonservice.addressInfo;
+  identificationDetails = this._commonservice.identificationDetails;
+  personalinfoContiner = []
+  imageUrl: string;
+  documentUrl: string;
+  documentBackUrl: string;
   constructor(private router: Router, private _commonservice: CommonService) { }
 
   ngOnInit() {
+    Object.keys(this._commonservice.securityQuestions).forEach(res => {
+      if (this._commonservice.securityQuestions[res].id == this._commonservice.securityContainers[1].questionCD) {
+        this.securityDetails.push(this._commonservice.securityQuestions[res].name)
+        this.securityDetails.push(this._commonservice.securityContainers[1].answer)
+      }
+      if (this._commonservice.securityQuestions[res].id == this._commonservice.securityContainers[0].questionCD) {
+        this.securityDetails.push(this._commonservice.securityQuestions[res].name)
+        this.securityDetails.push(this._commonservice.securityContainers[0].answer)
+      }
+    })
+
+    if (this._commonservice.personalInfo["genderCD"] == "M") {
+      this.personalinfoContiner.push("Male")
+    }
+    else {
+      this.personalinfoContiner.push("Female")
+    }
+    Object.keys(this._commonservice.lookup).forEach(k => {
+      if (this._commonservice.lookup[k].id == this._commonservice.personalInfo["countryOfBirthCD"])
+        this.personalinfoContiner.push(this._commonservice.lookup[k].name)
+      if (this._commonservice.lookup[k].id == this._commonservice.personalInfo["nationality"])
+        this.personalinfoContiner.push(this._commonservice.lookup[k].name)
+    })
+
+    this.imageUrl = this.personalinfo["profileImage"]
+    this.documentUrl = this.identificationDetails["document"]
+    this.documentBackUrl = this.identificationDetails["documentBack"]
+
   }
   reviewApi() {
     this._commonservice.review(localStorage.getItem("accessmedium")).subscribe((resp) => {

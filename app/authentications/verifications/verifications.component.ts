@@ -40,6 +40,8 @@ export class VerificationsComponent implements OnInit {
 
       if (this.Verification.controls.verfcode.valid) {
         if (resp.body.message.errorMessage == "") {
+          const data = resp.headers.get('access-medium');
+          localStorage.setItem("accessmedium", data)
           this.router.navigate(['/terms']);
         }
         else {

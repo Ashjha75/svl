@@ -14,8 +14,13 @@ export class CommonService extends BaseService {
 	parish: {}
 	idType: {}
 	securityQuestions: {}
-
-
+	tierList: {}
+	bankName: {}
+	bankAccountType: {}
+	securityContainers: {}
+	personalInfo: {}
+	addressInfo: {}
+	identificationDetails: {}
 	public lookUps(body): Observable<any> {
 		const headers = new HttpHeaders({
 			'Authorization': `Bearer ${this.token}`,
@@ -48,7 +53,7 @@ export class CommonService extends BaseService {
 	public resendOtp(body, accessmedium): Observable<any> {
 		const headers = new HttpHeaders({
 			'Access-Medium': accessmedium,
-			'Platform-Type': 'GY',
+			'Platform-Type': 'JM',
 			'Client-Type': 'WEB'
 		})
 		const url = '/api/resend-otp';
@@ -57,7 +62,7 @@ export class CommonService extends BaseService {
 	public SignUpPersonal(body, accessmedium): Observable<any> {
 		const headers = new HttpHeaders({
 			'Access-Medium': accessmedium,
-			'Platform-type': 'GY',
+			'Platform-type': 'JM',
 			'Client-type': 'WEB'
 		})
 		const url = '/api/register-personal';

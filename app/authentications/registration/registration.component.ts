@@ -21,15 +21,20 @@ export class RegistrationComponent implements OnInit {
       'phone': ['', Validators.required]
     })
     this.commonService.lookUps({
-      "lookups": ["countries", "gender", "parish", "idType", "securityQuestions", "phoneNumberCodes"]
+      "lookups": ["countries", "gender", "parish", "idType", "securityQuestions", "phoneNumberCodes", "tierList", "bankName", "bankAccountType"]
     }).subscribe((res) => {
       this.commonService.lookup = res.body.countries;
       this.countryPhoneCode = res.body.phoneNumberCodes;
       this.commonService.gender = res.body.gender;
       this.commonService.parish = res.body.parish;
       this.commonService.idType = res.body.idType;
+      this.commonService.tierList = res.body.tierList;
+      this.commonService.bankName = res.body.bankName;
+      this.commonService.bankAccountType = res.body.bankAccountType;
       this.commonService.securityQuestions = res.body.securityQuestions;
+
     })
+
   }
 
 

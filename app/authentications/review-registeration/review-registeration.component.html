@@ -9,10 +9,7 @@
         <div class="col-lg-4 col-md-12 col-sm-12 content1 px-4">
           <div class="head1 mb-1">
             <span
-              ><img
-                src="./assets/images/register/front-upload.png"
-                alt="front-upload"
-                width="75px"
+              ><img [src]="imageUrl" alt="front-upload" width="75px"
             /></span>
             <span class="title">Personal Details</span>
             <span class="edit"
@@ -27,31 +24,43 @@
           <div class="container1">
             <div class="rows1 row">
               <span class="col text-secondary">First Name</span
-              ><span class="col text-success">Ashish</span>
+              ><span class="col text-success">{{
+                personalinfo["firstName"]
+              }}</span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary">Middle Name</span
-              ><span class="col text-success">asaa</span>
+              ><span class="col text-success">{{
+                personalinfo["middleName"]
+              }}</span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary">Last Name</span
-              ><span class="col text-success">s</span>
+              ><span class="col text-success">{{
+                personalinfo["lastName"]
+              }}</span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary">Date Of Birth</span
-              ><span class="col text-success">05/04/2005</span>
+              ><span class="col text-success">{{ personalinfo["dob"] }}</span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary">Gender</span
-              ><span class="col text-success">Male</span>
+              ><span class="col text-success">{{
+                personalinfoContiner[0]
+              }}</span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary">Country of Birth</span
-              ><span class="col text-success">Australia</span>
+              ><span class="col text-success">{{
+                personalinfoContiner[1]
+              }}</span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary">Nationality</span>
-              <span class="col text-success">Albania</span>
+              <span class="col text-success">{{
+                personalinfoContiner[2]
+              }}</span>
             </div>
           </div>
         </div>
@@ -70,43 +79,59 @@
           <div class="container2">
             <div class="rows1 row">
               <span class="col text-secondary">Street Address</span
-              ><span class="col text-success">ASDsaa</span>
+              ><span class="col text-success">{{
+                addressInfo["streetAddress"]
+              }}</span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary">Apartment/Suite</span
-              ><span class="col text-success"> St.</span>
+              ><span class="col text-success">
+                {{ addressInfo["apartment"] }}</span
+              >
             </div>
             <div class="rows1 row">
               <span class="col text-secondary">Parish</span
-              ><span class="col text-success">Ann</span>
+              ><span class="col text-success">{{ addressInfo["parish"] }}</span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary">Town</span
-              ><span class="col text-success">ALEXANDRA</span>
+              ><span class="col text-success">{{ addressInfo["town"] }}</span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary"> District</span
-              ><span class="col text-success">ALBION</span>
+              ><span class="col text-success">{{
+                addressInfo["district"]
+              }}</span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary">Email Address</span
-              ><span class="col text-success"> a2@gmaiI.com</span>
+              ><span class="col text-success">{{
+                addressInfo["emailAddress"]
+              }}</span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary">TRN</span>
-              <span class="col text-success">111222233</span>
+              <span class="col text-success">{{
+                identificationDetails["trnNumber"]
+              }}</span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary">ID Type</span>
-              <span class="col text-success"> Driver's License</span>
+              <span class="col text-success">{{
+                identificationDetails["idTypeCD"]
+              }}</span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary">ID Number</span>
-              <span class="col text-success">12e34Sg555 </span>
+              <span class="col text-success"
+                >{{ identificationDetails["idNumber"] }}
+              </span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary">ID Expiration Date</span>
-              <span class="col text-success">2023-04-15</span>
+              <span class="col text-success">{{
+                identificationDetails["idExpirationDate"]
+              }}</span>
             </div>
             <div class="row11 mt-3 row">
               <span class="col">
@@ -115,32 +140,16 @@
                     <div class="img1container">
                       <label for="file-input">
                         <img
-                          src="./assets/images/register/front-upload.png"
+                          [src]="documentUrl"
                           alt="Select an image"
+                          readonly
                         />
                       </label>
-                      <input
-                        type="file"
-                        id="file-input"
-                        name="image"
-                        accept="image/*"
-                        style="display: none"
-                      />
                     </div>
                     <div class="img1container">
                       <label for="file-input">
-                        <img
-                          src="./assets/images/register/back-upload.png"
-                          alt="Select an image"
-                        />
+                        <img [src]="documentBackUrl" alt="Select an image" />
                       </label>
-                      <input
-                        type="file"
-                        id="file-input"
-                        name="image"
-                        accept="image/*"
-                        style="display: none"
-                      />
                     </div>
                   </div>
 
@@ -180,23 +189,19 @@
           <div class="container3">
             <div class="rows1 row">
               <span class="col text-secondary">Question 1</span
-              ><span class="col text-success"
-                >Where did you meet your spouse?</span
-              >
+              ><span class="col text-success">{{ securityDetails[2] }}</span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary">Answer 1</span
-              ><span class="col text-success">qwerty</span>
+              ><span class="col text-success">{{ securityDetails[3] }}</span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary"> Question 2</span
-              ><span class="col text-success"
-                >What was your dream job as a child?</span
-              >
+              ><span class="col text-success">{{ securityDetails[0] }}</span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary">Answer 2</span
-              ><span class="col text-success">Doctor</span>
+              ><span class="col text-success">{{ securityDetails[1] }}</span>
             </div>
             <div class="rows1 row">
               <span class="col text-secondary"

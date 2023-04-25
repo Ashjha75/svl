@@ -19,15 +19,16 @@
             <img
               src="./assets/images/register/profileimage.png"
               alt="Select an image"
+              class="upload-btn"
             />
           </label>
           <input
             type="file"
             id="file-input"
             name="image"
-            accept="image/*"
+            (change)="onFileSelected($event)"
+            accept=".jpeg , .jpg ,.png"
             style="display: none"
-            formControlName="image"
           />
           <div class="imgInfo">
             (Allowed document formats are : jpg, jpeg. png)
@@ -112,7 +113,7 @@
               <option value disabled selected>Gender</option>
               <option
                 *ngFor="let item of genders; let i = index"
-                value="{{ genders[i].name }}"
+                value="{{ genders[i].id }}"
                 id="{{ genders[i].id }}"
               >
                 {{ genders[i].name }}
@@ -144,6 +145,7 @@
               >Country Of Birth
               <span class="asterick text-danger">*</span></label
             >
+
             <div class="content" *ngIf="toggleoption">
               <div class="search">
                 <input type="search" id="optionSearch" placeholder="Search" />
@@ -155,10 +157,9 @@
                       type="radio"
                       name="checks1"
                       formControlName="checks1"
-                      value="{{ countries[i].name }}"
+                      value="{{ countries[i].id }}"
                       id="{{ countries[i].id }}"
                       class="RadioCheck"
-                      (click)="onClicked3()"
                     />
                     {{ countries[i].name }}</label
                   >
@@ -192,7 +193,7 @@
                       type="radio"
                       name="checks2"
                       formControlName="checks2"
-                      value="{{ countries[i].name }}"
+                      value="{{ countries[i].id }}"
                       id="{{ countries[i].id }}"
                     />
                     {{ countries[i].name }}</label
@@ -212,6 +213,7 @@
             type="button"
             class="btn btn2 bg-success text-white w-100"
             (click)="SignupApiCall()"
+            [disabled]="personalInfo && personalInfo.invalid"
           >
             Save and continue
           </button>

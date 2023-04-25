@@ -174,7 +174,7 @@ input::-webkit-inner-spin-button {
 .popup {
   color: #269c2f;
   text-decoration: underline;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
   cursor: pointer;
   margin-bottom: 1rem;
@@ -365,4 +365,10 @@ input[type="radio"] {
 }
 .options li label:hover {
   background: #f3f3f3;
+}
+.notes {
+  font-size: 12px;
+  color: #269c2f;
+  margin: 7px 0;
+  text-align: center;
 }

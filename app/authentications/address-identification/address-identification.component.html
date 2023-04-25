@@ -144,6 +144,24 @@
             </div>
           </div>
           <div class="inputGroup">
+            <input
+              type="number"
+              autocomplete="off"
+              name="mobile"
+              formControlName="trn"
+              [ngClass]="{
+                'invalid-input': idnum && idnum.invalid && idnum.touched
+              }"
+            />
+            <label for="mobile"
+              >TRN <span class="asterick text-danger">*</span></label
+            >
+            <div class="warn" *ngIf="trn && trn.invalid && trn.touched">
+              <i class="fa fa-info-circle error-info-icon mr-1"></i> Please fill
+              this field to continue
+            </div>
+          </div>
+          <div class="inputGroup">
             <select
               name="gender"
               id="gender"
@@ -230,6 +248,7 @@
                 <label for="file-input">
                   <img
                     src="./assets/images/register/front-upload.png"
+                    id="upload-btn"
                     alt="Select an image"
                   />
                 </label>
@@ -237,15 +256,16 @@
                   type="file"
                   id="file-input"
                   name="image"
-                  accept="image/*"
+                  (change)="onFileSelected($event)"
+                  accept=".jpeg , .jpg , .png"
                   style="display: none"
-                  formControlName="img1"
                 />
               </div>
               <div class="img1container">
                 <label for="file-input2">
                   <img
                     src="./assets/images/register/back-upload.png"
+                    id="upload-btn2"
                     alt="Select an image"
                   />
                 </label>
@@ -253,9 +273,9 @@
                   type="file"
                   id="file-input2"
                   name="image"
-                  accept="image/*"
                   style="display: none"
-                  formControlName="img2"
+                  (change)="onFileSelected2($event)"
+                  accept=".jpeg , .jpg , .png"
                 />
               </div>
             </div>
@@ -278,11 +298,11 @@
               <input
                 class="form-check-input"
                 type="radio"
-                checked
                 name="radio1"
                 id="radio1"
-                value="2"
+                value="false"
                 formControlName="radio1"
+                (change)="showForm = false"
               />
               <label class="form-check-label ml-2" for="radio1">
                 Opt for Digital top up and redemption via digital payment
@@ -294,15 +314,267 @@
                 class="form-check-input"
                 type="radio"
                 name="radio1"
-                value="1"
+                id="radio2"
+                value="true"
+                (change)="showForm = true"
                 formControlName="radio1"
               />
-              <label class="form-check-label ml-2" for="radio1">
+              <label class="form-check-label ml-2" for="radio2">
                 Opt tor cash in and cash out at retail stores
               </label>
+              <div class="secondForm" [hidden]="!showForm">
+                <div class="inputGroup">
+                  <select
+                    name="code"
+                    formControlName="tiers"
+                    [ngClass]="{
+                      'invalid-input': tiers && tiers.invalid && tiers.touched
+                    }"
+                    (change)="onSelectTiers($event.target.value)"
+                  >
+                    <option value disabled selected>Select</option>
+                    <option
+                      *ngFor="let tier of tierList; let i = index"
+                      id="{{ tierList[i].id }}"
+                    >
+                      {{ tierList[i].name }}
+                    </option>
+                  </select>
+                  <label for="code"
+                    >Select Tier Details
+                    <span class="asterick text-danger">*</span></label
+                  >
+                  <div
+                    class="warn"
+                    *ngIf="tiers && tiers.invalid && tiers.touched"
+                  >
+                    <i class="fa fa-info-circle error-info-icon mr-1"></i>
+                    Please fill this field to continue
+                  </div>
+                </div>
+                <div class="firstLayer" [hidden]="!firstlayer">
+                  <div class="text-success ml-1 mb-4">
+                    Please provide source of funds*
+                    <img
+                      src="../../../assets/images/register/info.png"
+                      height="18px"
+                    />
+                  </div>
+                  <div class="faded">
+                    <div
+                      class="imgmainContainer d-flex justify-content-center mb-2"
+                    >
+                      <div class="img1container">
+                        <label for="file-input3">
+                          <img
+                            src="./assets/images/register/upload.png"
+                            id="upload-btn3"
+                            alt="Select an image"
+                          />
+                        </label>
+                        <input
+                          type="file"
+                          id="file-input3"
+                          name="image"
+                          style="display: none"
+                          (change)="onFileSelected3($event)"
+                          accept=".jpeg , .jpg , .png"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notes">
+                    (Allowed document formats are : jpg, jpeg, png)
+                  </div>
+                </div>
+
+                <div class="secondLayer" [hidden]="!secondLayer">
+                  <div class="inputGroup">
+                    <input
+                      type="text"
+                      autocomplete="off"
+                      name="mobile"
+                      formControlName="occupation"
+                      [ngClass]="{
+                        'invalid-input':
+                          occupation && occupation.invalid && occupation.touched
+                      }"
+                    />
+                    <label for="mobile"
+                      >Occupation/Line of Business
+                      <span class="asterick text-danger">*</span></label
+                    >
+                    <div
+                      class="warn"
+                      *ngIf="
+                        occupation && occupation.invalid && occupation.touched
+                      "
+                    >
+                      <i class="fa fa-info-circle error-info-icon mr-1"></i>
+                      Please fill this field to continue
+                    </div>
+                  </div>
+                  <div class="text-success ml-1 mt-1 mb-3">
+                    Please provide address proof *
+                    <img
+                      src="../../../assets/images/register/info.png"
+                      height="18px"
+                    />
+                  </div>
+                  <div class="faded">
+                    <div
+                      class="imgmainContainer d-flex justify-content-center mb-2"
+                    >
+                      <div class="img1container">
+                        <label for="file-input4">
+                          <img
+                            src="./assets/images/register/upload.png"
+                            id="upload-btn4"
+                            alt="Select an image"
+                          />
+                        </label>
+                        <input
+                          type="file"
+                          id="file-input4"
+                          name="image"
+                          style="display: none"
+                          (change)="onFileSelected4($event)"
+                          accept=".jpeg , .jpg , .png"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notes text-success">
+                    (Allowed document formats are : jpg, jpeg, png)
+                  </div>
+                </div>
+                <div class="thirdlayer" [hidden]="!thirdLayer">
+                  <div class="text-success my-3">Bank Details</div>
+                  <div class="inputGroup">
+                    <select
+                      name="code"
+                      formControlName="bankNames"
+                      [ngClass]="{
+                        'invalid-input':
+                          bankNames && bankNames.invalid && bankNames.touched
+                      }"
+                      (change)="onSelect($event.target.value)"
+                    >
+                      <option value disabled selected>Select</option>
+                      <option
+                        *ngFor="let item of bankName; let i = index"
+                        id="{{ bankName[i].id }}"
+                      >
+                        {{ bankName[i].name }}
+                      </option>
+                    </select>
+                    <label for="code"
+                      >Bank Name
+                      <span class="asterick text-danger">*</span></label
+                    >
+                    <div
+                      class="warn"
+                      *ngIf="
+                        bankNames && bankNames.invalid && bankNames.touched
+                      "
+                    >
+                      <i class="fa fa-info-circle error-info-icon mr-1"></i>
+                      Please fill this field to continue
+                    </div>
+                  </div>
+                  <div class="inputGroup">
+                    <input
+                      type="text"
+                      autocomplete="off"
+                      name="mobile"
+                      formControlName="branchName"
+                      [ngClass]="{
+                        'invalid-input':
+                          branchName && branchName.invalid && branchName.touched
+                      }"
+                    />
+                    <label for="mobile"
+                      >Branch Name
+                      <span class="asterick text-danger">*</span></label
+                    >
+                    <div
+                      class="warn"
+                      *ngIf="
+                        branchName && branchName.invalid && branchName.touched
+                      "
+                    >
+                      <i class="fa fa-info-circle error-info-icon mr-1"></i>
+                      Please fill this field to continue
+                    </div>
+                  </div>
+                  <div class="inputGroup">
+                    <input
+                      type="number"
+                      autocomplete="off"
+                      name="mobile"
+                      formControlName="accountNum"
+                      [ngClass]="{
+                        'invalid-input':
+                          accountNum && accountNum.invalid && accountNum.touched
+                      }"
+                    />
+                    <label for="mobile"
+                      >Account Number
+                      <span class="asterick text-danger">*</span></label
+                    >
+                    <div
+                      class="warn"
+                      *ngIf="
+                        accountNum && accountNum.invalid && accountNum.touched
+                      "
+                    >
+                      <i class="fa fa-info-circle error-info-icon mr-1"></i>
+                      Please fill this field to continue
+                    </div>
+                  </div>
+
+                  <div class="inputGroup">
+                    <select
+                      name="code"
+                      formControlName="accountType"
+                      [ngClass]="{
+                        'invalid-input':
+                          accountType &&
+                          accountType.invalid &&
+                          accountType.touched
+                      }"
+                      (change)="onSelect($event.target.value)"
+                    >
+                      <option value disabled selected>Select</option>
+                      <option
+                        *ngFor="let item of bankAccountType; let i = index"
+                        id="{{ bankAccountType[i].id }}"
+                      >
+                        {{ bankAccountType[i].name }}
+                      </option>
+                    </select>
+                    <label for="code"
+                      >Account Type
+                      <span class="asterick text-danger">*</span></label
+                    >
+                    <div
+                      class="warn"
+                      *ngIf="
+                        accountType &&
+                        accountType.invalid &&
+                        accountType.touched
+                      "
+                    >
+                      <i class="fa fa-info-circle error-info-icon mr-1"></i>
+                      Please fill this field to continue
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
         <div
           class="btnContainer d-flex justify-content-between align-items-center w-100"
         >
@@ -311,7 +583,6 @@
           </button>
           <button
             type="submit"
-            [disabled]="addressForm && addressForm.invalid"
             class="btn btn2 bg-success text-white w-50"
             (click)="AddressApi()"
           >

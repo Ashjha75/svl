@@ -17,7 +17,7 @@ export class SecurityDetailsComponent implements OnInit {
   body: {}
   securityQuestions: {}
   securityForm: FormGroup
-
+  hello = {}
   constructor(private fb: FormBuilder, private router: Router, private _commonService: CommonService) { }
 
   ngOnInit() {
@@ -37,18 +37,23 @@ export class SecurityDetailsComponent implements OnInit {
   }
   SecurityApi() {
     this.body = {
-      "pass1": this.securityForm.controls.pass1.value,
-      "questList": [{
-        "ques1": this.securityForm.controls.ques1.value,
-        "ans1": this.securityForm.controls.ans1.value
-      },
-      { "ques2": this.securityForm.controls.ques2.value, "ans2": this.securityForm.controls.ans2.value },
-      { "ques3": this.securityForm.controls.ques2.value, "ans3": this.securityForm.controls.ans2.value },
-      ]
-
+      "securityDetails": {
+        "accountPin": this.securityForm.controls.pass1.value,
+        "questionList": [
+          {
+            "questionCD": this.securityForm.controls.ques1.value,
+            "answer": this.securityForm.controls.ans1.value
+          },
+          { "questionCD": this.securityForm.controls.ques2.value, "answer": this.securityForm.controls.ans2.value },
+        ]
+      }
     }
     this._commonService.SignUpSecurity(this.body, localStorage.getItem("accessmedium")).subscribe((res) => {
       if (res.body.message.errorMessage == "") {
+        this._commonService.securityContainers = res.body.securityDetails;
+        this._commonService.personalInfo = res.body.personalDetails;
+        this._commonService.addressInfo = res.body.physicalAddress;
+        this._commonService.identificationDetails = res.body.identificationDetails;
         this.router.navigate(['/review']);
       }
       else {
