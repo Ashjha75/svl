@@ -13,6 +13,7 @@ export class VerificationsComponent implements OnInit {
   @Output() display;
   errorMessage = ""
   body: {};
+  loader = false;
   timeRemaining = 60;
   intervalId: any;
   // accessMedium: string = 'internet';
@@ -32,10 +33,11 @@ export class VerificationsComponent implements OnInit {
       verfcode: ['xxx', [Validators.required]],
       Refferal: ['']
     })
+    this.loader = false;
   }
 
   verifyApi() {
-
+    this.loader = true;
     this._commonService.otpVerify({ 'otp': this.Verification.controls.verfcode.value }, localStorage.getItem("accessmedium")).subscribe((resp) => {
 
       if (this.Verification.controls.verfcode.valid) {
@@ -45,6 +47,7 @@ export class VerificationsComponent implements OnInit {
           this.router.navigate(['/terms']);
         }
         else {
+          this.loader = false
           this.display = !this.display;
           this.errorMessage = resp.body.message.errorMessage;
         }

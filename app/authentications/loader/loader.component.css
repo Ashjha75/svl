@@ -1,0 +1,32 @@
+.loader-container {
+  background: #0000008f;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.spinner {
+  width: 7.2px;
+  height: 7.2px;
+  border-radius: 11.2px;
+  box-shadow: 28px 0px 0 0 #fff, 22.7px 16.5px 0 0 #fff, 8.68px 26.6px 0 0 #fff,
+    -8.68px 26.6px 0 0 #fff, -22.7px 16.5px 0 0 #fff;
+  animation: spinner-b87k6z 1.2s infinite linear;
+}
+
+@keyframes spinner-b87k6z {
+  0% {
+    transform: rotate(10deg);
+  }
+
+  75% {
+    transform: rotate(355deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

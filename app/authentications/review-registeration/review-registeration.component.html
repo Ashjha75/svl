@@ -165,12 +165,99 @@
                 >Would you like to opt for Cash transactions at the retail
                 stores?</span
               >
-              <span class="col text-success">No</span>
+              <span class="col text-success">{{ optYN }}</span>
             </div>
-            <div class="row13 row">
-              <span class="col text-danger lastrow"
-                >Please click here for additional inforrnation on tiers
-              </span>
+            <!-- -------------------------------- -->
+            <div [hidden]="!display">
+              <div class="rows1 row">
+                <span class="col-8 text-secondary">Tier Details</span>
+                <span class="col text-success">{{
+                  identificationDetails["tier"]
+                }}</span>
+              </div>
+              <div class="row13 row">
+                <span class="col text-danger lastrow"
+                  >Please click here for additional inforrnation on tiers
+                </span>
+              </div>
+              <div class="firstTier" [hidden]="!firstlayer">
+                <div class="row11 mt-3 row">
+                  <span class="col">
+                    <div class="faded">
+                      <div
+                        class="imgmainContainer d-flex justify-content-around"
+                      >
+                        <div class="img1container">
+                          <label for="file-input">
+                            <img
+                              [src]="sourceUrl"
+                              alt="Select an image"
+                              readonly
+                            />
+                          </label>
+                        </div>
+                      </div></div
+                  ></span>
+                </div>
+              </div>
+
+              <div class="secondRow" [hidden]="!secondLayer">
+                <div class="rows1 row">
+                  <span class="col-8 text-secondary"
+                    >Occupation/Line of Business</span
+                  >
+                  <span class="col text-success">{{
+                    identificationDetails["occupation"]
+                  }}</span>
+                </div>
+                <div class="row11 mt-3 row">
+                  <span class="col">
+                    <div class="faded">
+                      <div
+                        class="imgmainContainer d-flex justify-content-around"
+                      >
+                        <div class="img1container">
+                          <label for="file-input">
+                            <img
+                              [src]="addressProofUrl"
+                              alt="Select an image"
+                              readonly
+                            />
+                          </label>
+                        </div>
+                      </div></div
+                  ></span>
+                </div>
+              </div>
+
+              <div class="thirdRow" [hidden]="!thirdLayer">
+                <div class="text-success">Bank Details</div>
+                <div class="rows1 row">
+                  <span class="col-8 text-secondary"> Bank Name</span>
+                  <span class="col text-success">{{
+                    identificationDetails["bankName"]
+                  }}</span>
+                </div>
+                <div class="rows1 row">
+                  <span class="col-8 text-secondary">Branch Name</span>
+                  <span class="col text-success">{{
+                    identificationDetails["branchName"]
+                  }}</span>
+                </div>
+                <div class="rows1 row">
+                  <span class="col-8 text-secondary">Account Number</span>
+                  <span class="col text-success">{{
+                    identificationDetails["accountNumber"]
+                  }}</span>
+                </div>
+
+                <div class="rows1 row">
+                  <span class="col-8 text-secondary">Account Type</span>
+                  <span class="col text-success">{{
+                    identificationDetails["accountType"]
+                  }}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -13,7 +13,7 @@ export class AddressIdentificationComponent implements OnInit {
   @Output() display;
   errorMessage = ""
   addressForm: FormGroup
-  additionalForm: FormGroup
+  loader = false;
   toggleoption = false
   body: {}
   toggleoption2 = false
@@ -62,7 +62,7 @@ export class AddressIdentificationComponent implements OnInit {
       accountType: ['', Validators.required],
 
     })
-
+    this.loader = false
 
     this.tierList = this._commonService.tierList;
     this.countries = this._commonService.lookup;
@@ -80,6 +80,9 @@ export class AddressIdentificationComponent implements OnInit {
   }
 
   onSelect(selectedValue: string) {
+    this.addressForm.get("town").reset("");
+    this.addressForm.get("district").reset("");
+
     this.set = (event.target as HTMLSelectElement).selectedOptions[0].id;
     Object.keys(counties).forEach(key => {
       Object.keys(counties[key].parish).forEach(key2 => {
@@ -95,6 +98,8 @@ export class AddressIdentificationComponent implements OnInit {
   }
   onSelect2(selectedValue: string) {
     this.set2 = (event.target as HTMLSelectElement).selectedOptions[0].id;
+    this.addressForm.get("district").reset("");
+
     Object.keys(counties).forEach(key => {
       Object.keys(counties[key].parish).forEach(key2 => {
 
@@ -109,6 +114,7 @@ export class AddressIdentificationComponent implements OnInit {
 
       })
     })
+
   }
   onSelectTiers(selectedValue: string) {
     this.tiersId = (event.target as HTMLSelectElement).selectedOptions[0].id;
@@ -210,6 +216,7 @@ export class AddressIdentificationComponent implements OnInit {
 
 
   AddressApi() {
+    this.loader = true
     const formData = new FormData();
     formData.append('streetAddress', this.addressForm.get('street').value);
     formData.append('apartment', this.addressForm.get('suite').value);
@@ -229,15 +236,16 @@ export class AddressIdentificationComponent implements OnInit {
     formData.append('occupation', this.addressForm.get('occupation').value);
     formData.append('addressProof', this.addressForm.get('address').value);
     formData.append('bankName', this.addressForm.get('bankName').value);
-    formData.append('bankAddress', this.addressForm.get('branchName').value);
+    formData.append('branchName', this.addressForm.get('branchName').value);
     formData.append('accountNumber', this.addressForm.get('accountNum').value);
     formData.append('accountType', this.addressForm.get('accountType').value);
-
+    console.log(this.addressForm.get('tiers').value)
     this._commonService.SignUpAddress(formData, localStorage.getItem("accessmedium")).subscribe((resp) => {
 
       if (resp.body.message.errorMessage == "") {
         this.router.navigate(['/security']);
       } else {
+        this.loader = false
         this.display = !this.display;
         this.errorMessage = resp.body.message.errorMessage;
       }

@@ -1,3 +1,9 @@
+<app-loader [hidden]="!loader"></app-loader>
+<app-popup-message
+  *ngIf="display"
+  [error]="errorMessage"
+  [display]="display"
+></app-popup-message>
 <div class="registeration">
   <div class="out-container">
     <div>Registration</div>
@@ -5,11 +11,7 @@
       <img src="./assets/images/register/signup-1.png" />
     </div>
   </div>
-  <app-popup-message
-    *ngIf="display"
-    [error]="errorMessage"
-    [display]="display"
-  ></app-popup-message>
+
   <div class="formContainer">
     <div class="info1">Permanent Address and Identification</div>
 
@@ -336,6 +338,7 @@
                     <option
                       *ngFor="let tier of tierList; let i = index"
                       id="{{ tierList[i].id }}"
+                      value="{{ tierList[i].id }}"
                     >
                       {{ tierList[i].name }}
                     </option>
@@ -453,7 +456,7 @@
                   <div class="inputGroup">
                     <select
                       name="code"
-                      formControlName="bankNames"
+                      formControlName="bankName"
                       [ngClass]="{
                         'invalid-input':
                           bankNames && bankNames.invalid && bankNames.touched
@@ -464,6 +467,7 @@
                       <option
                         *ngFor="let item of bankName; let i = index"
                         id="{{ bankName[i].id }}"
+                        value="{{ bankName[i].name }}"
                       >
                         {{ bankName[i].name }}
                       </option>

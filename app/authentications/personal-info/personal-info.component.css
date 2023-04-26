@@ -317,7 +317,7 @@ input::-webkit-inner-spin-button {
   height: 25px;
   width: 25px;
   order: 2;
-  /* opacity: 0; */
+  opacity: 0;
   accent-color: rgb(18, 66, 139);
 }
 .options li label:hover {

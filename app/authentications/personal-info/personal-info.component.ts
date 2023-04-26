@@ -11,6 +11,7 @@ export class PersonalInfoComponent implements OnInit {
   @Output() error;
   @Output() display;
   personalInfo: FormGroup;
+  loader = false
   val = '';
   toggleoption = false;
   toggleoption2 = false;
@@ -35,6 +36,7 @@ export class PersonalInfoComponent implements OnInit {
     })
     this.countries = this._commonservice.lookup;
     this.genders = this._commonservice.gender;
+    this.loader = false;
   }
   onFileSelected(event) {
     const file: File = event.target.files[0];
@@ -65,6 +67,7 @@ export class PersonalInfoComponent implements OnInit {
 
 
   SignupApiCall() {
+    this.loader = true
     const formData = new FormData();
     formData.append('firstName', this.personalInfo.controls.fname.value,)
     formData.append('middleName', this.personalInfo.controls.mname.value,)
@@ -81,6 +84,7 @@ export class PersonalInfoComponent implements OnInit {
         this.router.navigate(['/address']);
       }
       else {
+        this.loader = false
         this.display = !this.display;
         this.errorMessage = resp.body.message.errorMessage;
       }

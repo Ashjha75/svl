@@ -10,14 +10,15 @@ import { SecurityDetailsComponent } from './security-details/security-details.co
 import { ReviewRegisterationComponent } from './review-registeration/review-registeration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PopupMessageComponent } from './popup-message/popup-message.component';
+import { LoaderComponent } from './loader/loader.component';
 @NgModule({
-  declarations: [RegistrationComponent,VerificationsComponent, TermsConditionsComponent, PersonalInfoComponent, AddressIdentificationComponent, SecurityDetailsComponent, ReviewRegisterationComponent, PopupMessageComponent],
+  declarations: [RegistrationComponent, VerificationsComponent, TermsConditionsComponent, PersonalInfoComponent, AddressIdentificationComponent, SecurityDetailsComponent, ReviewRegisterationComponent, PopupMessageComponent, LoaderComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     AuthenticationsRoutingModule
   ],
-  exports: [RegistrationComponent, VerificationsComponent, TermsConditionsComponent, PersonalInfoComponent, AddressIdentificationComponent, SecurityDetailsComponent, ReviewRegisterationComponent]
+  exports: [RegistrationComponent, VerificationsComponent, TermsConditionsComponent, PersonalInfoComponent, AddressIdentificationComponent, SecurityDetailsComponent, ReviewRegisterationComponent, PopupMessageComponent, LoaderComponent]
 })
 export class AuthenticationsModule { }

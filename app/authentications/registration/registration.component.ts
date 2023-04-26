@@ -8,6 +8,7 @@ import { CommonService } from '../../../services/commonService';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+  loader: boolean = false;
   inputForm: FormGroup;
   body = {};
   countryPhoneCode;
@@ -34,6 +35,7 @@ export class RegistrationComponent implements OnInit {
       this.commonService.securityQuestions = res.body.securityQuestions;
 
     })
+    this.loader = false;
 
   }
 
@@ -43,6 +45,7 @@ export class RegistrationComponent implements OnInit {
       'phone': this.inputForm.controls.select.value + this.inputForm.controls.phone.value
     };
 
+    this.loader = true;
     this.commonService.register(this.body).subscribe((res) => {
       if (this.inputForm.valid) {
         if (res.body.message.errorMessage == "")

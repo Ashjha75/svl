@@ -11,6 +11,7 @@ import { CommonService } from '../../../services/commonService';
 export class SecurityDetailsComponent implements OnInit {
   @Output() error;
   @Output() display;
+  loader = false;
   errorMessage = ""
   hide = true;
   hide2 = true;
@@ -34,8 +35,10 @@ export class SecurityDetailsComponent implements OnInit {
       flexRadioDefault3: ['No', Validators.required],
     })
     this.securityQuestions = this._commonService.securityQuestions;
+    this.loader = false;
   }
   SecurityApi() {
+    this.loader = true;
     this.body = {
       "securityDetails": {
         "accountPin": this.securityForm.controls.pass1.value,
@@ -57,6 +60,7 @@ export class SecurityDetailsComponent implements OnInit {
         this.router.navigate(['/review']);
       }
       else {
+        this.loader = false;
         this.display = !this.display;
         this.errorMessage = res.body.message.errorMessage;
       }

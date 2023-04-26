@@ -1,3 +1,10 @@
+<app-loader [hidden]="!loader"></app-loader>
+
+<app-popup-message
+  *ngIf="display"
+  [error]="errorMessage"
+  [display]="display"
+></app-popup-message>
 <div class="registeration">
   <div class="out-container">
     <div>Registration</div>
@@ -5,11 +12,7 @@
       <img src="./assets/images/register/signup-3.png" />
     </div>
   </div>
-  <app-popup-message
-    *ngIf="display"
-    [error]="errorMessage"
-    [display]="display"
-  ></app-popup-message>
+
   <div class="formContainer">
     <div class="info1">Security Details</div>
 
