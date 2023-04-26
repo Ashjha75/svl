@@ -35,6 +35,7 @@ export class AddressIdentificationComponent implements OnInit {
   firstlayer = false;
   secondLayer = false;
   thirdLayer = false;
+  sourceUrl = "./assets/images/register/upload.png";
   constructor(private fb: FormBuilder, private router: Router, private _commonService: CommonService) { }
 
   ngOnInit() {
@@ -124,16 +125,38 @@ export class AddressIdentificationComponent implements OnInit {
         this.firstlayer = false;
         this.secondLayer = false;
         this.thirdLayer = false;
+        this.addressForm.get("source").reset("")
+        this.addressForm.get("occupation").reset("")
+        this.addressForm.get("address")
+
+        this.addressForm.get("bankName").reset("")
+        this.addressForm.get("branchName").reset("")
+        this.addressForm.get("accountNum").reset("")
+        this.addressForm.get("accountType").reset("")
         break;
       case ("2"):
+        const sr = document.querySelector('#upload-btn3') as HTMLImageElement;
+        const sr2 = document.querySelector('#upload-btn4') as HTMLImageElement;
         this.firstlayer = true;
         this.secondLayer = false;
         this.thirdLayer = false;
+        this.addressForm.get("occupation").reset("")
+        sr.src = this.sourceUrl;
+        sr2.src = this.sourceUrl;
+        this.addressForm.get("bankName").reset("")
+        this.addressForm.get("branchName").reset("")
+        this.addressForm.get("accountNum").reset("")
+        this.addressForm.get("accountType").reset("")
         break;
       case ("3"):
         this.firstlayer = true;
         this.secondLayer = true;
         this.thirdLayer = false;
+        this.addressForm.get("bankName").reset("")
+        this.addressForm.get("branchName").reset("")
+        this.addressForm.get("accountNum").reset("")
+        this.addressForm.get("accountType").reset("")
+
         break;
       case ("4"):
         this.firstlayer = true;
@@ -239,7 +262,6 @@ export class AddressIdentificationComponent implements OnInit {
     formData.append('branchName', this.addressForm.get('branchName').value);
     formData.append('accountNumber', this.addressForm.get('accountNum').value);
     formData.append('accountType', this.addressForm.get('accountType').value);
-    console.log(this.addressForm.get('tiers').value)
     this._commonService.SignUpAddress(formData, localStorage.getItem("accessmedium")).subscribe((resp) => {
 
       if (resp.body.message.errorMessage == "") {

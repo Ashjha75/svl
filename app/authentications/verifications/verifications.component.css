@@ -49,7 +49,7 @@ form .input-container {
   width: 100%;
 }
 .inputGroup {
-  margin: 1rem 0 1rem 0;
+  margin: 1rem 0 0.4rem 0;
   width: 100%;
   position: relative;
 }
@@ -75,7 +75,6 @@ form .inputGroup input {
   font-size: 14px !important;
   letter-spacing: 0.4px !important;
   height: 45px !important;
-  margin-bottom: 0.3rem;
 }
 form .verify {
   font-size: 1rem;
