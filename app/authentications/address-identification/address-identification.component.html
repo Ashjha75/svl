@@ -84,7 +84,7 @@
               [ngClass]="{
                 'invalid-input': towns && towns.invalid && towns.touched
               }"
-              (change)="onSelect2($event.target.value)"
+              (click)="onSelect2($event.target.value)"
             >
               <option value disabled selected>Select</option>
               <option *ngFor="let town of townName" id="{{ town }}">
@@ -461,7 +461,7 @@
                         'invalid-input':
                           bankNames && bankNames.invalid && bankNames.touched
                       }"
-                      (change)="onSelect($event.target.value)"
+                      (click)="onSelect($event.target.value)"
                     >
                       <option value disabled selected>Select</option>
                       <option

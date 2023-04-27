@@ -31,6 +31,8 @@ export class PersonalInfoComponent implements OnInit {
       lname: ['', Validators.required],
       date: ['', Validators.required],
       gender: ['', Validators.required],
+      input1: [''],
+      input2: [''],
       checks1: [''],
       checks2: ['']
     })
@@ -59,13 +61,46 @@ export class PersonalInfoComponent implements OnInit {
   onClicked() {
     this.toggleoption = !this.toggleoption;
     this.toggleoption2 = false;
+
+  }
+  onCobChange() {
+    let ch1 = this.personalInfo.controls.checks1.value;
+    Object.keys(this._commonservice.lookup).forEach(k => {
+      if (this._commonservice.lookup[k].id == ch1)
+        ch1 = this._commonservice.lookup[k].name
+    })
+    this.personalInfo.controls.input1.setValue(ch1)
+  }
+  onCobChange2() {
+    let ch2 = this.personalInfo.controls.checks2.value;
+    Object.keys(this._commonservice.lookup).forEach(k => {
+      if (this._commonservice.lookup[k].id == ch2)
+        ch2 = this._commonservice.lookup[k].name
+    })
+    this.personalInfo.controls.input2.setValue(ch2)
   }
   onClicked2() {
     this.toggleoption2 = !this.toggleoption2;
     this.toggleoption = false;
   }
+  onClicked3(e: string) {
+    switch (e) {
+      case ("soValue"):
+      case ("optionSearch"):
+        this.toggleoption = true;
+        this.toggleoption2 = false;
+        break;
+      case ("soValue2"):
+      case ("optionSearch2"):
+        this.toggleoption = false;
+        this.toggleoption2 = true;
+        break;
+      default:
+        this.toggleoption = false;
+        this.toggleoption2 = false;
+    }
 
-
+  }
   SignupApiCall() {
     this.loader = true
     const formData = new FormData();
@@ -89,8 +124,6 @@ export class PersonalInfoComponent implements OnInit {
         this.errorMessage = resp.body.message.errorMessage;
       }
     })
-
-
   }
 
   get fname() {

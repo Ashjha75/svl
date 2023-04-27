@@ -53,14 +53,14 @@ export class AddressIdentificationComponent implements OnInit {
       img1: ['', Validators.required],
       img2: ['', Validators.required],
       radio1: ['false', Validators.required],
-      tiers: ['', Validators.required],
-      source: ['', Validators.required],
-      occupation: ['', Validators.required],
-      address: ['', Validators.required],
-      bankName: ['', Validators.required],
-      branchName: ['', Validators.required],
-      accountNum: ['', Validators.required],
-      accountType: ['', Validators.required],
+      tiers: [''],
+      source: [''],
+      occupation: [''],
+      address: [''],
+      bankName: [''],
+      branchName: [''],
+      accountNum: [''],
+      accountType: [''],
 
     })
     this.loader = false
@@ -83,6 +83,7 @@ export class AddressIdentificationComponent implements OnInit {
   onSelect(selectedValue: string) {
     this.addressForm.get("town").reset("");
     this.addressForm.get("district").reset("");
+    this.townName = []
 
     this.set = (event.target as HTMLSelectElement).selectedOptions[0].id;
     Object.keys(counties).forEach(key => {
@@ -98,9 +99,9 @@ export class AddressIdentificationComponent implements OnInit {
     })
   }
   onSelect2(selectedValue: string) {
-    this.set2 = (event.target as HTMLSelectElement).selectedOptions[0].id;
     this.addressForm.get("district").reset("");
-
+    this.districtName = []
+    this.set2 = (event.target as HTMLSelectElement).selectedOptions[0].id;
     Object.keys(counties).forEach(key => {
       Object.keys(counties[key].parish).forEach(key2 => {
 
@@ -125,23 +126,55 @@ export class AddressIdentificationComponent implements OnInit {
         this.firstlayer = false;
         this.secondLayer = false;
         this.thirdLayer = false;
-        this.addressForm.get("source").reset("")
+        const sr = document.querySelector('#upload-btn3') as HTMLImageElement;
+        const sr2 = document.querySelector('#upload-btn4') as HTMLImageElement;
+        sr.src = this.sourceUrl;
+        sr2.src = this.sourceUrl;
+        this.addressForm.get("source").clearValidators();
+        this.addressForm.get("occupation").clearValidators();
+        this.addressForm.get("address").clearValidators();
+        this.addressForm.get("bankName").clearValidators();
+        this.addressForm.get("branchName").clearValidators();
+        this.addressForm.get("accountNum").clearValidators();
+        this.addressForm.get("accountType").clearValidators();
+
+        this.addressForm.get("bankName").updateValueAndValidity();
+        this.addressForm.get("branchName").updateValueAndValidity();
+        this.addressForm.get("accountNum").updateValueAndValidity();
+        this.addressForm.get("accountType").updateValueAndValidity();
+        this.addressForm.get("address").updateValueAndValidity();
+        this.addressForm.get("occupation").updateValueAndValidity();
+        this.addressForm.get("source").updateValueAndValidity();
+
+        this.addressForm.get("occupation").reset("")
         this.addressForm.get("occupation").reset("")
         this.addressForm.get("address")
-
         this.addressForm.get("bankName").reset("")
         this.addressForm.get("branchName").reset("")
         this.addressForm.get("accountNum").reset("")
         this.addressForm.get("accountType").reset("")
         break;
       case ("2"):
-        const sr = document.querySelector('#upload-btn3') as HTMLImageElement;
-        const sr2 = document.querySelector('#upload-btn4') as HTMLImageElement;
         this.firstlayer = true;
         this.secondLayer = false;
         this.thirdLayer = false;
+        this.addressForm.get("source").setValidators(Validators.required);
+        this.addressForm.get("occupation").clearValidators();
+        this.addressForm.get("address").clearValidators();
+        this.addressForm.get("bankName").clearValidators();
+        this.addressForm.get("branchName").clearValidators();
+        this.addressForm.get("accountNum").clearValidators();
+        this.addressForm.get("accountType").clearValidators();
+
+        this.addressForm.get("bankName").updateValueAndValidity();
+        this.addressForm.get("branchName").updateValueAndValidity();
+        this.addressForm.get("accountNum").updateValueAndValidity();
+        this.addressForm.get("accountType").updateValueAndValidity();
+        this.addressForm.get("address").updateValueAndValidity();
+        this.addressForm.get("occupation").updateValueAndValidity();
+        this.addressForm.get("source").updateValueAndValidity();
+
         this.addressForm.get("occupation").reset("")
-        sr.src = this.sourceUrl;
         sr2.src = this.sourceUrl;
         this.addressForm.get("bankName").reset("")
         this.addressForm.get("branchName").reset("")
@@ -152,6 +185,23 @@ export class AddressIdentificationComponent implements OnInit {
         this.firstlayer = true;
         this.secondLayer = true;
         this.thirdLayer = false;
+        this.addressForm.get("address").setValidators(Validators.required);
+        this.addressForm.get("occupation").setValidators(Validators.required);
+        this.addressForm.get("source").setValidators(Validators.required);
+
+        this.addressForm.get("bankName").clearValidators();
+        this.addressForm.get("branchName").clearValidators();
+        this.addressForm.get("accountNum").clearValidators();
+        this.addressForm.get("accountType").clearValidators();
+
+        this.addressForm.get("bankName").updateValueAndValidity();
+        this.addressForm.get("branchName").updateValueAndValidity();
+        this.addressForm.get("accountNum").updateValueAndValidity();
+        this.addressForm.get("accountType").updateValueAndValidity();
+        this.addressForm.get("address").updateValueAndValidity();
+        this.addressForm.get("occupation").updateValueAndValidity();
+        this.addressForm.get("source").updateValueAndValidity();
+
         this.addressForm.get("bankName").reset("")
         this.addressForm.get("branchName").reset("")
         this.addressForm.get("accountNum").reset("")
@@ -159,6 +209,23 @@ export class AddressIdentificationComponent implements OnInit {
 
         break;
       case ("4"):
+        this.addressForm.get("bankName").setValidators(Validators.required);
+        this.addressForm.get("branchName").setValidators(Validators.required);
+        this.addressForm.get("accountNum").setValidators(Validators.required);
+        this.addressForm.get("accountType").setValidators(Validators.required);
+        this.addressForm.get("address").setValidators(Validators.required);
+        this.addressForm.get("occupation").setValidators(Validators.required);
+        this.addressForm.get("source").setValidators(Validators.required);
+
+        this.addressForm.get("bankName").updateValueAndValidity();
+        this.addressForm.get("branchName").updateValueAndValidity();
+        this.addressForm.get("accountNum").updateValueAndValidity();
+        this.addressForm.get("accountType").updateValueAndValidity();
+        this.addressForm.get("address").updateValueAndValidity();
+        this.addressForm.get("occupation").updateValueAndValidity();
+        this.addressForm.get("source").updateValueAndValidity();
+
+
         this.firstlayer = true;
         this.secondLayer = true;
         this.thirdLayer = true;
@@ -239,6 +306,10 @@ export class AddressIdentificationComponent implements OnInit {
 
 
   AddressApi() {
+    // debugger
+    if (!this.addressForm.valid) {
+      return;
+    }
     this.loader = true
     const formData = new FormData();
     formData.append('streetAddress', this.addressForm.get('street').value);
@@ -263,7 +334,6 @@ export class AddressIdentificationComponent implements OnInit {
     formData.append('accountNumber', this.addressForm.get('accountNum').value);
     formData.append('accountType', this.addressForm.get('accountType').value);
     this._commonService.SignUpAddress(formData, localStorage.getItem("accessmedium")).subscribe((resp) => {
-
       if (resp.body.message.errorMessage == "") {
         this.router.navigate(['/security']);
       } else {

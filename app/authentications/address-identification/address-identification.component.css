@@ -156,7 +156,7 @@ input::-webkit-inner-spin-button {
 .faded .imgmainContainer .img1container {
   max-width: 175px;
   max-height: 120px;
-  border: 2px dotted #269c2f;
+  border: 2px dashed #269c2f;
   padding: 9px 14px;
 }
 .faded .imgInfo {
@@ -371,4 +371,17 @@ input[type="radio"] {
   color: #269c2f;
   margin: 7px 0;
   text-align: center;
+}
+
+.faded .imgmainContainer .img1container {
+  max-width: 175px;
+  max-height: 120px;
+  border: 2px dashed #269c2f;
+  padding: 9px 14px;
+}
+.faded .imgmainContainer .img1container.invalid-img {
+  max-width: 175px;
+  max-height: 120px;
+  border: 2px dashed #f30707;
+  padding: 9px 14px;
 }
