@@ -84,43 +84,34 @@ export class AddressIdentificationComponent implements OnInit {
     this.addressForm.get("town").reset("");
     this.addressForm.get("district").reset("");
     this.townName = []
-
     this.set = (event.target as HTMLSelectElement).selectedOptions[0].id;
     Object.keys(counties).forEach(key => {
       Object.keys(counties[key].parish).forEach(key2 => {
-
         if ((counties[key].parish[key2].name) == this.set) {
           Object.keys((counties[key].parish[key2].towns)).forEach(key3 => {
             this.townName.push(counties[key].parish[key2].towns[key3].name)
           });
         }
-
       })
     })
   }
   onSelect2(selectedValue: string) {
-    this.addressForm.get("district").reset("");
     this.districtName = []
+    this.addressForm.get("district").reset("");
     this.set2 = (event.target as HTMLSelectElement).selectedOptions[0].id;
     Object.keys(counties).forEach(key => {
       Object.keys(counties[key].parish).forEach(key2 => {
-
         Object.keys((counties[key].parish[key2].towns)).forEach(key3 => {
           Object.keys(counties[key].parish[key2].towns[key3].districts).forEach(key4 => {
             if ((counties[key].parish[key2].towns[key3].name) == this.set2)
               this.districtName.push(counties[key].parish[key2].towns[key3].districts[key4].name);
-
           })
         });
-
-
       })
     })
-
   }
   onSelectTiers(selectedValue: string) {
     this.tiersId = (event.target as HTMLSelectElement).selectedOptions[0].id;
-    console.log(this.tiersId);
     switch (this.tiersId) {
       case ("1"):
         this.firstlayer = false;

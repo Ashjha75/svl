@@ -187,7 +187,12 @@
             >
             <div class="content" *ngIf="toggleoption2">
               <div class="search">
-                <input type="search" id="optionSearch2" placeholder="Search" />
+                <input
+                  type="search"
+                  id="optionSearch2"
+                  placeholder="Search"
+                  (change)="onSearch($event.target.value)"
+                />
               </div>
               <ul class="options">
                 <li *ngFor="let item of countries; let i = index">
@@ -217,7 +222,6 @@
             type="button"
             class="btn btn2 bg-success text-white w-100"
             (click)="SignupApiCall()"
-            [disabled]="personalInfo && personalInfo.invalid"
           >
             Save and continue
           </button>
@@ -226,4 +230,3 @@
     </div>
   </div>
 </div>
-<!-- [disabled]="personalInfo && personalInfo.invalid" -->

@@ -101,7 +101,17 @@ export class PersonalInfoComponent implements OnInit {
     }
 
   }
+  onSearch(query: string) {
+    this.countries = Object.keys(this.countries).filter((country) =>
+      this.countries[country].name.common.toLowerCase().includes(query.toLowerCase())
+    );
+  }
+
   SignupApiCall() {
+    if (!this.personalInfo.valid) {
+
+      return;
+    }
     this.loader = true
     const formData = new FormData();
     formData.append('firstName', this.personalInfo.controls.fname.value,)

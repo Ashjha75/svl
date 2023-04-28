@@ -38,6 +38,9 @@ export class SecurityDetailsComponent implements OnInit {
     this.loader = false;
   }
   SecurityApi() {
+    if (!this.securityForm.valid) {
+      return
+    }
     this.loader = true;
     this.body = {
       "securityDetails": {

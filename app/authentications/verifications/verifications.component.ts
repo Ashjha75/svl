@@ -30,13 +30,16 @@ export class VerificationsComponent implements OnInit {
 
 
     this.Verification = this.fb.group({
-      verfcode: ['xxx', [Validators.required]],
+      verfcode: ['', [Validators.required]],
       Refferal: ['']
     })
     this.loader = false;
   }
 
   verifyApi() {
+    if (!this.Verification.controls.verfcode.valid) {
+      return
+    }
     this.loader = true;
     this._commonService.otpVerify({ 'otp': this.Verification.controls.verfcode.value }, localStorage.getItem("accessmedium")).subscribe((resp) => {
 

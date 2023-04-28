@@ -367,7 +367,15 @@
                     <div
                       class="imgmainContainer d-flex justify-content-center mb-2"
                     >
-                      <div class="img1container">
+                      <div
+                        [ngClass]="{
+                          'invalid-input':
+                            occupation &&
+                            occupation.invalid &&
+                            occupation.touched,
+                          img1container: occupation
+                        }"
+                      >
                         <label for="file-input3">
                           <img
                             [src]="sourceUrl"

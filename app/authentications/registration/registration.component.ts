@@ -41,6 +41,9 @@ export class RegistrationComponent implements OnInit {
 
 
   registerApi() {
+    if (!this.inputForm.valid) {
+      return;
+    }
     this.body = {
       'phone': this.inputForm.controls.select.value + this.inputForm.controls.phone.value
     };
